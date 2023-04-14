@@ -4,15 +4,22 @@ import HomeController from '@/app/controllers/HomeController';
 import UserController from '../app/controllers/UserController';
 import validateForm from '@/app/middlewares/validateForm';
 import {object, string} from 'yup';
+import CRUDRouter from './CRUDRouter';
 
 const router = new Router();
 
 const schema = object({
   name: string().required(),
-  password: string().required(),
 });
 
+const userRouter = CRUDRouter(UserController, {
+  schemas: {
+    create: schema,
+  },
+  resource: 'users',
+}).routes();
+
 router.get('/', HomeController.index);
-router.post('/users', validateForm(schema), UserController.store);
+router.use('/users', userRouter);
 
 export default router.routes();

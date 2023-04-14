@@ -1,4 +1,10 @@
-export default function validateForm(schema, type = 'body') {
+export default function validateForm(schema, options = {}) {
+  const {
+    type,
+    resource,
+    redirectType,
+  } = options;
+
   return async (ctx, next) => {
     try {
       await schema.validate(type === 'query' ? ctx.request.query : ctx.request.body, {
@@ -7,11 +13,15 @@ export default function validateForm(schema, type = 'body') {
       await next();
     } catch (err) {
       console.log(err);
-      ctx.session.formErrors = err.inner.map(error => ({
-        message: error.message,
-        path: error.path,
-      }));
-      ctx.redirect('/');
+      const errorsMap = {};
+
+      err.inner.forEach(error => {
+        errorsMap[error.path] = error.message;
+      })
+
+      ctx.session.formErrors = errorsMap;
+      if (redirectType === 'edit') ctx.redirect(`${resource}/edit/${ctx.params.id}`);
+      else if (redirectType === 'create') ctx.redirect(`${resource}/create`);
     }
   };
 }

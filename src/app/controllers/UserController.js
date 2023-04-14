@@ -1,9 +1,9 @@
+import User from '../models/User';
 import UserService from '../services/User/UserService';
+import CRUDController from './CRUDController';
 
-class UserController {
-  static async store(ctx) {
-    ctx.body = await UserService.create(ctx.request.body);
-  }
-}
+const UserController = CRUDController(User, {
+  resource: 'users'
+});
 
 export default UserController;
