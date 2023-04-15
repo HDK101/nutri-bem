@@ -41,8 +41,12 @@ async function start() {
       });
       await next();
     })
-    .use(async (err, ctx, next) => {
-      ctx.view('internalError');
+    .use(async (ctx, next) => {
+      try {
+        await next();
+      } catch (err) {
+        ctx.view('internalError');
+      }
     })
     .use(koaBody())
     .use(session({
