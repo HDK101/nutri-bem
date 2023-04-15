@@ -20,8 +20,8 @@ export default function validateForm(schema, options = {}) {
       })
 
       ctx.session.formErrors = errorsMap;
-      if (redirectType === 'edit') ctx.redirect(`${resource}/edit/${ctx.params.id}`);
-      else if (redirectType === 'create') ctx.redirect(`${resource}/create`);
+      if (redirectType === 'edit') ctx.redirect(`/${resource}/${ctx.params.id}/edit`);
+      else if (redirectType === 'create') ctx.redirect(`/${resource}/create`);
     }
   };
 }

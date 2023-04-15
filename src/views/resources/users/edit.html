@@ -1,0 +1,9 @@
+<form action="/users/<%= data.resource.id %>/update" method="post">
+    <label for="name">Name: </label>
+    <input id="name" name="name" value="<%= data.resource.name %>"/>
+    <input type="submit" value="Update"/>
+</form>
+
+<form action="/users/<%= data.resource.id %>/delete" method="post">
+    <input type="submit" value="Delete"/>
+</form>

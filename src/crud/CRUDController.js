@@ -22,33 +22,30 @@ export default function CRUDController(Model, options = {}) {
       });
   }
 
-  async function show(ctx) {
-      const resource = await Model.findByPk(+ctx.params.id, {
+  async function edit(ctx) {
+      const res = await Model.findByPk(+ctx.params.id, {
         include: ctx.query.include,
         attributes: {
           exclude,
         },
       });
-      ctx.view(`resources/${resource}/show`, {
-        resource,
+
+      if (!res) throw new Error('Not found');
+
+      console.log(res);
+
+      return ctx.view(`resources/${resource}/edit`, {
+        resource: res,
       });
   }
 
   async function create(ctx) {
-      console.log('waltar');
-      await Model.create({
-        name: 'Walter',
-      });
       return ctx.view(`resources/${resource}/create`);
   }
 
   async function store(ctx) {
     ctx.body = await Model.create(ctx.request.body);
     ctx.redirect(resource);
-  }
-
-  async function edit(ctx) {
-    ctx.view(`resources/${resource}/edit`);
   }
 
   async function update(ctx) {
@@ -59,8 +56,7 @@ export default function CRUDController(Model, options = {}) {
     });
     instance.set(ctx.request.body);
     await instance.save();
-    ctx.body = instance;
-    ctx.redirect(`${resource}/edit/${ctx.params.id}`);
+    ctx.redirect(`/${resource}/${ctx.params.id}/edit`);
   }
 
   async function destroy(ctx) {
@@ -71,13 +67,12 @@ export default function CRUDController(Model, options = {}) {
     });
     await instance.destroy();
     ctx.body = instance;
-    ctx.redirect(`${resource}/edit/${ctx.params.id}`);
+    ctx.redirect(`/${resource}`);
   }
 
   if (!routesOnly) {
     return {
       index,
-      show,
       create,
       store,
       edit,
@@ -90,10 +85,6 @@ export default function CRUDController(Model, options = {}) {
 
   if (routesOnly.includes('index')) {
     controller.index = index;
-  }
-
-  if (routesOnly.includes('show')) {
-    controller.show = show;
   }
 
   if (routesOnly.includes('store')) {

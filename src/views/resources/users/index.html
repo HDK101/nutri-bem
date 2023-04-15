@@ -1,2 +1,10 @@
-<%= data.resources.map(resource => JSON.stringify(resource.toJSON())) %>
-<%= formErrors.name %>
+<% for (const resource of data.resources) { %>
+<p>
+    <%= resource.id %>
+    <%= resource.name %>
+</p>
+<a href="/users/<%= resource.id %>/edit">Editar</a>
+<br>
+<% } %>
+<a href="/users/create">Criar</a>
+<%= formErrors?.name %>
