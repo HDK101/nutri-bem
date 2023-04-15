@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize';
 import connection from '@/database/connection';
+import Alergias from './Alergias';
 
 const Paciente = connection.define("Paciente", {
     id: {
@@ -35,6 +36,17 @@ const Paciente = connection.define("Paciente", {
         primaryKey: false,
         defaultValue: "Nada consta"
     }
+});
+
+
+// Adicionando chave estrangeira para tabela que representa alergias de um paciente
+Paciente.hasMany(Alergias, {
+    foreignKey: "idPaciente"
+});
+
+Alergias.belongsTo(Paciente, {
+    constraints: true,
+    foreignKey: "idPaciente"
 });
 
 export default Paciente;
