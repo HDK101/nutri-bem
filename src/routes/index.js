@@ -2,7 +2,6 @@ import Router from '@koa/router';
 import HomeController from '@/app/controllers/HomeController';
 
 import UserController from '../app/controllers/UserController';
-import validateForm from '@/app/middlewares/validateForm';
 import {object, string} from 'yup';
 import CRUDRouter from '../crud/CRUDRouter';
 

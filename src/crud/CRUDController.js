@@ -1,5 +1,3 @@
-/* eslint-disable class-methods-use-this */
-
 export default function CRUDController(Model, options = {}) {
   const { 
     exclude, 

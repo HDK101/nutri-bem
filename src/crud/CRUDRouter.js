@@ -1,4 +1,4 @@
-import validateForm from '@/app/middlewares/validateForm';
+import validateForm from './validateForm';
 import Router from '@koa/router';
 
 export default function CRUDRouter(controller, options = { resource, schemas: {} }) {

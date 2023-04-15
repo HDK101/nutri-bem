@@ -41,11 +41,15 @@ async function start() {
       });
       await next();
     })
+    .use(async (err, ctx, next) => {
+      ctx.view('internalError');
+    })
     .use(koaBody())
     .use(session({
       sameSite: 'strict',
     }, app))
-    .use(routes);
+    .use(routes)
+    .use((ctx) => ctx.view('404'));
 
   app.listen(3000);
 }
