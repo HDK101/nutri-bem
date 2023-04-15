@@ -9,6 +9,11 @@ const Paciente = connection.define("Paciente", {
         allowNull: false,
         primaryKey: true
     },
+    nome: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        primaryKey: false
+    },
     cpf: {
         type: DataTypes.STRING,
         allowNull: false,
