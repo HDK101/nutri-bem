@@ -9,6 +9,8 @@ import { join } from 'node:path';
 
 import sync from './database/sync';
 import routes from './routes';
+import serve from 'koa-static';
+import mount from 'koa-mount';
 
 async function start() {
   dotenv.config();
@@ -52,6 +54,7 @@ async function start() {
     .use(session({
       sameSite: 'strict',
     }, app))
+    .use(mount('/public', serve('./public')))
     .use(routes)
     .use((ctx) => ctx.view('404'));
 
