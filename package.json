@@ -21,7 +21,7 @@
     "koa-mount": "^4.0.0",
     "koa-session": "^6.4.0",
     "koa-static": "^5.0.0",
-    "sequelize": "^6.30.0",
+    "sequelize": "^6.31.0",
     "sqlite3": "^5.1.6",
     "yup": "^1.0.2"
   },
