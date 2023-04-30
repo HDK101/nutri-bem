@@ -10,7 +10,7 @@ export default function CRUDRouter(controller, options = { resource: '', schemas
     resource,
   } = options;
 
-  if (resource) throw new Error('"resource" need to be set');
+  if (!resource) throw new Error('"resource" need to be set');
 
   const crudRouter = new Router();
   if (controller.index) crudRouter.get('/', controller.index);
