@@ -33,7 +33,7 @@ const menuRouter = CRUDRouter(MenuController, {
 router.get('/', HomeController.index);
 router.use('/users', userRouter);
 
-router.use(patientRouter);
-router.use(menuRouter);
+router.use(patientRouter.routes());
+router.use(menuRouter.routes());
 
 export default router.routes();

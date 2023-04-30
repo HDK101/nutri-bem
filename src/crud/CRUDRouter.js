@@ -1,14 +1,13 @@
 import Router from '@koa/router';
 import validateForm from './validateForm';
 
-export default function CRUDRouter(controller, options = { resource: '', schemas: {} }) {
+export default function CRUDRouter(controller, options = { resource: '', schemas: { create: null, update: null } }) {
   const {
-    schemas: {
-      create,
-      update,
-    },
+    schemas,
     resource,
   } = options;
+
+  const { create, update } = schemas || {};
 
   if (!resource) throw new Error('"resource" need to be set');
 
