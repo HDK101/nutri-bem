@@ -1,8 +1,11 @@
 import Router from '@koa/router';
+import { object, string } from 'yup';
 import HomeController from '@/app/controllers/HomeController';
 
+import MenuController from '@/app/controllers/MenuController';
+import PatientController from '@/app/controllers/PatientController';
+
 import UserController from '../app/controllers/UserController';
-import {object, string} from 'yup';
 import CRUDRouter from '../crud/CRUDRouter';
 
 const router = new Router();
@@ -19,7 +22,18 @@ const userRouter = CRUDRouter(UserController, {
   resource: 'users',
 }).routes();
 
+const patientRouter = CRUDRouter(PatientController, {
+  resource: 'patients',
+});
+
+const menuRouter = CRUDRouter(MenuController, {
+  resource: 'menus',
+});
+
 router.get('/', HomeController.index);
 router.use('/users', userRouter);
+
+router.use(patientRouter);
+router.use(menuRouter);
 
 export default router.routes();
