@@ -1,6 +1,6 @@
 export default function CRUDController(Model, options = {}) {
-  const { 
-    exclude, 
+  const {
+    exclude,
     routesOnly,
     resource,
   } = options;
@@ -8,37 +8,37 @@ export default function CRUDController(Model, options = {}) {
   if (!resource) throw new Error('"resource" must be set to a string');
 
   async function index(ctx) {
-      const resources = await Model.findAll({
-        attributes: {
-          exclude,
-        },
-        include: ctx.query.include,
-      });
+    const resources = await Model.findAll({
+      attributes: {
+        exclude,
+      },
+      include: ctx.query.include,
+    });
 
-      return ctx.view(`resources/${resource}/index`, {
-        resources,
-      });
+    return ctx.view(`resources/${resource}/index`, {
+      resources,
+    });
   }
 
   async function edit(ctx) {
-      const res = await Model.findByPk(+ctx.params.id, {
-        include: ctx.query.include,
-        attributes: {
-          exclude,
-        },
-      });
+    const res = await Model.findByPk(+ctx.params.id, {
+      include: ctx.query.include,
+      attributes: {
+        exclude,
+      },
+    });
 
-      if (!res) throw new Error('Not found');
+    if (!res) throw new Error('Not found');
 
-      console.log(res);
+    console.log(res);
 
-      return ctx.view(`resources/${resource}/edit`, {
-        resource: res,
-      });
+    return ctx.view(`resources/${resource}/edit`, {
+      resource: res,
+    });
   }
 
   async function create(ctx) {
-      return ctx.view(`resources/${resource}/create`);
+    return ctx.view(`resources/${resource}/create`);
   }
 
   async function store(ctx) {

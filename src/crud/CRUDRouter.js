@@ -1,8 +1,8 @@
-import validateForm from './validateForm';
 import Router from '@koa/router';
+import validateForm from './validateForm';
 
-export default function CRUDRouter(controller, options = { resource, schemas: {} }) {
-  const { 
+export default function CRUDRouter(controller, options = { resource: '', schemas: {} }) {
+  const {
     schemas: {
       create,
       update,
@@ -10,13 +10,15 @@ export default function CRUDRouter(controller, options = { resource, schemas: {}
     resource,
   } = options;
 
+  if (resource) throw new Error('"resource" need to be set');
+
   const crudRouter = new Router();
   if (controller.index) crudRouter.get('/', controller.index);
   if (controller.create) crudRouter.get('/create', controller.create);
   if (controller.edit) crudRouter.get('/:id/edit', controller.edit);
   if (controller.store) {
     if (create) crudRouter.post('/', validateForm(create, { resource, redirectType: 'create' }), controller.store);
-    else crudRouter.post('/', controller.store)
+    else crudRouter.post('/', controller.store);
   }
   if (controller.update) {
     if (update) crudRouter.post('/:id/update', validateForm(update, { resource, redirectType: 'edit' }), controller.update);

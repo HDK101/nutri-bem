@@ -15,9 +15,9 @@ export default function validateForm(schema, options = {}) {
       console.log(err);
       const errorsMap = {};
 
-      err.inner.forEach(error => {
+      err.inner.forEach((error) => {
         errorsMap[error.path] = error.message;
-      })
+      });
 
       ctx.session.formErrors = errorsMap;
       if (redirectType === 'edit') ctx.redirect(`/${resource}/${ctx.params.id}/edit`);
