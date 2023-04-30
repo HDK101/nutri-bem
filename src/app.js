@@ -7,15 +7,16 @@ import dotenv from 'dotenv';
 
 import { join } from 'node:path';
 
-import sync from './database/sync';
-import routes from './routes';
 import serve from 'koa-static';
 import mount from 'koa-mount';
+import { sync, association } from './database';
+import routes from './routes';
 
 async function start() {
   dotenv.config();
 
   await sync();
+  await association();
 
   const app = new Koa();
 
