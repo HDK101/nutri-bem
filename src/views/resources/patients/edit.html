@@ -1,0 +1,9 @@
+<form action="/patients/<%= data.resource.id %>/update" method="post">
+    <label for="patientName">Menu: </label>
+    <input id="patientName" name="patientName" value="<%= data.resource.name %>"/>
+    <input type="submit" value="Update"/>
+</form>
+
+<form action="/patients/<%= data.resource.id %>/delete" method="post">
+    <input type="submit" value="Delete"/>
+</form>

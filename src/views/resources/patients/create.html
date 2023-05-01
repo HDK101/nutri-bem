@@ -1,0 +1,6 @@
+<form action="/users" method="post">
+    <label for="patientName">Patient name: </label>
+    <input id="patientName" name="patientName" />
+    <p><%= formErrors?.name %></p>
+    <input type="submit" value="Send"/>
+</form>

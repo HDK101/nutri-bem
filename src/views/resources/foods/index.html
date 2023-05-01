@@ -1,0 +1,10 @@
+<% for (const resource of data.resources) { %>
+    <p>
+        <%= resource.id %>
+        <%= resource.name %>
+    </p>
+    <a href="/foods/<%= resource.id %>/edit">Update</a>
+    <br>
+    <% } %>
+    <a href="/foods/create">Create</a>
+    <%= formErrors?.name %>

@@ -1,0 +1,9 @@
+<form action="/restrictions/<%= data.resource.id %>/update" method="post">
+    <label for="restriction">Restriction: </label>
+    <input id="restriction" name="patierestrictionntName" value="<%= data.resource.name %>"/>
+    <input type="submit" value="Update"/>
+</form>
+
+<form action="/restrictions/<%= data.resource.id %>/delete" method="post">
+    <input type="submit" value="Delete"/>
+</form>

@@ -1,0 +1,9 @@
+<form action="/foods/<%= data.resource.id %>/update" method="post">
+    <label for="food">Food: </label>
+    <input id="food" name="food" value="<%= data.resource.name %>"/>
+    <input type="submit" value="Update"/>
+</form>
+
+<form action="/foods/<%= data.resource.id %>/delete" method="post">
+    <input type="submit" value="Delete"/>
+</form>
