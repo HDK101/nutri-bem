@@ -6,7 +6,7 @@ const Food = connection.define('Food', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  quantity: {
+  amount: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },

@@ -1,9 +1,9 @@
 <% for (const resource of data.resources) { %>
     <p>
-        <%= resource.id %>
         <%= resource.name %>
+        <%= resource.amount %>
     </p>
-    <a href="/foods/<%= resource.id %>/edit">Update</a>
+    <a href="/foods/<%= resource.name %>/edit">Update</a>
     <br>
     <% } %>
     <a href="/foods/create">Create</a>

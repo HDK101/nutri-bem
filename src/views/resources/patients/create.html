@@ -1,6 +1,16 @@
 <form action="/patients" method="post">
-    <label for="patientName">Patient name: </label>
-    <input id="patientName" name="patientName" />
+    <label for="name">Patient name: </label>
+    <input id="name" name="name" />
+    <label for="document">Document: </label>
+    <input id="document" name="document" />
+    <label for="heigth">Height: </label>
+    <input id="heigth" name="heigth" />
+    <label for="weigth">Weight: </label>
+    <input id="weigth" name="weigth" />
+    <label for="sex">Sex: </label>
+    <input id="sex" name="sex" />
+    <label for="historic">Historic: </label>
+    <input id="historic" name="historic" />
     <p><%= formErrors?.name %></p>
     <input type="submit" value="Send"/>
 </form>

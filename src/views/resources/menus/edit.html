@@ -1,6 +1,10 @@
 <form action="/menus/<%= data.resource.id %>/update" method="post">
-    <label for="menu">Menu: </label>
-    <input id="menu" name="menu" value="<%= data.resource.name %>"/>
+    <label for="name">Menu: </label>
+    <input id="name" name="name" value="<%= data.resource.name %>"/>
+    <label for="time">Time: </label>
+    <input id="time" name="time" value="<%= data.resource.time %>"/>
+    <label for="notes">Notes: </label>
+    <input id="notes" name="notes" value="<%= data.resource.notes %>"/>
     <input type="submit" value="Update"/>
 </form>
 

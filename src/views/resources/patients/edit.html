@@ -1,7 +1,18 @@
 <form action="/patients/<%= data.resource.id %>/update" method="post">
-    <label for="patientName">Menu: </label>
-    <input id="patientName" name="patientName" value="<%= data.resource.name %>"/>
+    <label for="name">Patient name: </label>
+    <input id="name" name="name" value="<%= data.resource.name %>"/>
+    <label for="document">Document: </label>
+    <input id="document" name="document" value="<%= data.resource.document %>"/>
+    <label for="height">Height: </label>
+    <input id="height" name="height" value="<%= data.resource.height %>"/>
+    <label for="weigth">Weigth: </label>
+    <input id="weigth" name="weigth" value="<%= data.resource.weigth %>"/>
+    <label for="sex">Sex: </label>
+    <input id="sex" name="sex" value="<%= data.resource.sex %>"/>
+    <label for="historic">Historic: </label>
+    <input id="historic" name="historic" value="<%= data.resource.historic %>"/>
     <input type="submit" value="Update"/>
+    
 </form>
 
 <form action="/patients/<%= data.resource.id %>/delete" method="post">

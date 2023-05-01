@@ -2,9 +2,16 @@
     <p>
         <%= resource.id %>
         <%= resource.name %>
+        <%= resource.document %>
+        <%= resource.heigth %>
+        <%= resource.weigth %>
+        <%= resource.sex %>
+        <%= resource.historic %>
+
     </p>
     <a href="/patients/<%= resource.id %>/edit">Update</a>
     <br>
     <% } %>
     <a href="/patients/create">Create</a>
     <%= formErrors?.name %>
+

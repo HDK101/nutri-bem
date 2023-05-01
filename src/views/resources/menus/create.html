@@ -1,6 +1,10 @@
 <form action="/menus" method="post">
-    <label for="menu">Menu: </label>
-    <input id="menu" name="menu" />
+    <label for="name">Menu: </label>
+    <input id="name" name="name" />
+    <label for="time">Time: </label>
+    <input id="time" name="time" />
+    <label for="notes">Notes: </label>
+    <input id="notes" name="notes" />
     <p><%= formErrors?.name %></p>
     <input type="submit" value="Send"/>
 </form>
