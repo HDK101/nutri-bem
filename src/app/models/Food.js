@@ -1,12 +1,12 @@
 import { DataTypes } from 'sequelize';
 import connection from '@/database/connection';
 
-const Food = connection.define('Alimento', {
-  nome: {
+const Food = connection.define('Food', {
+  name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  quantidade: {
+  quantity: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
