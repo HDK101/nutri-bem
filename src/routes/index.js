@@ -1,5 +1,6 @@
 import Router from '@koa/router';
 import { object, string } from 'yup';
+import LoginController from '@/app/controllers/LoginController';
 import HomeController from '@/app/controllers/HomeController';
 import MenuController from '@/app/controllers/MenuController';
 import FoodController from '@/app/controllers/FoodController';
@@ -38,7 +39,8 @@ const restrictionRouter = CRUDRouter(RestrictionController, {
   resource: 'restrictions',
 });
 
-router.get('/', HomeController.index);
+router.get('/', LoginController.index);
+router.get('/home', HomeController.index);
 router.use('/users', userRouter);
 
 router.use(patientRouter.routes());
