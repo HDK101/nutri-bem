@@ -1,0 +1,23 @@
+.bg-gray {
+    background-color: rgba(224, 221, 221, 0.986);
+}
+
+.container-width-height {
+    width: 420px;
+    height: 245px;
+    padding: 7px;
+    position: absolute;
+    top: 0; 
+    bottom: 0;
+    left: 0; 
+    right: 0;
+    margin: auto;
+}
+
+.border-radius {
+    border-radius: 10px;
+}
+
+.btn {
+    margin: 15px;
+}
