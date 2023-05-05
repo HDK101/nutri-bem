@@ -8,6 +8,14 @@ const User = connection.define('User', {
     autoIncrement: true,
   },
   name: DataTypes.STRING,
+  email: {
+    type: DataTypes.STRING,
+    unique: true
+  },
+  password: {
+    type: DataTypes.STRING,
+    unique: true
+  }
 });
 
 export default User;
