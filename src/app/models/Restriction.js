@@ -1,5 +1,7 @@
 import { DataTypes } from 'sequelize';
 import connection from '@/database/connection';
+import FoodRestriction from './FoodRestriction';
+import PatientRestriction from './PatientRestriction';
 
 const Restriction = connection.define('Restriction', {
   name: {
@@ -11,14 +13,14 @@ const Restriction = connection.define('Restriction', {
 Restriction.associate = (models) => {
   const { Food, Patient } = models;
 
-  // Acho que as restricoes sera M:N para pacientes
-  Restriction.belongsTo(Patient, {
-    foreignKey: 'patient_id',
+  Restriction.belongsToMany(Patient, {
+    through: PatientRestriction,
+    foreignKey: 'restriction_id',
   });
 
   // Acho que as restricoes sera M:N para alimentos
   Restriction.belongsTo(Food, {
-    foreignKey: 'food_id',
+    through: FoodRestriction,
   });
 };
 
