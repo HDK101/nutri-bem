@@ -15,17 +15,15 @@ import routes from './routes';
 async function start() {
   dotenv.config();
 
-  await sync();
   await association();
+  await sync();
 
   const app = new Koa();
-
-  koaEjs(app, {
-    root: join(__dirname, 'views'),
+koaEjs(app, { root: join(__dirname, 'views'),
     layout: 'template',
     viewExt: 'html',
     cache: false,
-    debug: true,
+    debug: false,
   });
 
   app.keys = ['secret'];
@@ -44,18 +42,19 @@ async function start() {
       });
       await next();
     })
-    .use(async (ctx, next) => {
-      try {
-        await next();
-      } catch (err) {
-        ctx.view('internalError');
-      }
-    })
     .use(koaBody())
     .use(session({
       sameSite: 'strict',
     }, app))
     .use(mount('/public', serve('./public')))
+    .use(async (ctx, next) => {
+      try {
+        await next();
+      } catch (err) {
+        console.log(err);
+        return ctx.view('internalError');
+      }
+    })
     .use(routes)
     .use((ctx) => ctx.view('404'));
 
