@@ -7,6 +7,10 @@ import PatientController from '@/app/controllers/PatientController';
 import RestrictionController from '@/app/controllers/RestrictionController';
 import UserController from '../app/controllers/UserController';
 import CRUDRouter from '../crud/CRUDRouter';
+import createPatient from '@/app/schemas/createPatient';
+import PatientRestrictionController from '@/app/controllers/PatientRestrictionController';
+import createFood from '@/app/schemas/createFood';
+import createRestriction from '@/app/schemas/createRestriction';
 
 const router = new Router();
 
@@ -23,8 +27,15 @@ const userRouter = CRUDRouter(UserController, {
 }).routes();
 
 const patientRouter = CRUDRouter(PatientController, {
+  schemas: {
+    create: createPatient,
+    update: createPatient,
+  },
   resource: 'patients',
 });
+
+router.get('/patients/:patientId/restrictions', PatientRestrictionController.index);
+router.post('/patients/:patientId/restrictions/:restrictionId', PatientRestrictionController.store);
 
 const menuRouter = CRUDRouter(MenuController, {
   resource: 'menus',
@@ -32,10 +43,18 @@ const menuRouter = CRUDRouter(MenuController, {
 
 const foodRouter = CRUDRouter(FoodController, {
   resource: 'foods',
+  schemas: {
+    create: createFood,
+    update: createFood,
+  },
 });
 
 const restrictionRouter = CRUDRouter(RestrictionController, {
   resource: 'restrictions',
+  schemas: {
+    create: createRestriction,
+    update: createRestriction,
+  },
 });
 
 router.get('/', HomeController.index);
