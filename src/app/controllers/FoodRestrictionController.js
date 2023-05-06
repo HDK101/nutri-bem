@@ -37,6 +37,20 @@ const FoodRestrictionController = {
 
     ctx.redirect(`/foods/${foodId}/restrictions`);
   },
+
+  async destroy(ctx) {
+    const foodId = +ctx.params.foodId;
+    const restrictionId = +ctx.params.restrictionId;
+
+    ctx.body = await FoodRestriction.destroy({
+      where: {
+        food_id: foodId,
+        restriction_id: restrictionId,
+      },
+    });
+
+    ctx.redirect(`/foods/${foodId}/restrictions`);
+  },
 };
 
 export default FoodRestrictionController;

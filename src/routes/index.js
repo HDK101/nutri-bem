@@ -37,6 +37,7 @@ const patientRouter = CRUDRouter(PatientController, {
 
 router.get('/patients/:patientId/restrictions', PatientRestrictionController.index);
 router.post('/patients/:patientId/restrictions/:restrictionId', PatientRestrictionController.store);
+router.post('/patients/:patientId/restrictions/:restrictionId/delete', PatientRestrictionController.destroy);
 
 const menuRouter = CRUDRouter(MenuController, {
   resource: 'menus',
@@ -52,6 +53,7 @@ const foodRouter = CRUDRouter(FoodController, {
 
 router.get('/foods/:foodId/restrictions', FoodRestrictionController.index);
 router.post('/foods/:foodId/restrictions/:restrictionId', FoodRestrictionController.store);
+router.post('/foods/:foodId/restrictions/:restrictionId/delete', FoodRestrictionController.destroy);
 
 const restrictionRouter = CRUDRouter(RestrictionController, {
   resource: 'restrictions',

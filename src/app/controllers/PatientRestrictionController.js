@@ -11,7 +11,6 @@ const PatientRestrictionController = {
     });
 
     const restrictionIds = patient.Restrictions.map(r => r.id);
-    
     const restrictions = await Restriction.findAll({
       where: {
         id: {
@@ -31,9 +30,23 @@ const PatientRestrictionController = {
     const patientId = +ctx.params.patientId;
     const restrictionId = +ctx.params.restrictionId;
 
-    ctx.body = await PatientRestriction.create({
+    await PatientRestriction.create({
       patient_id: patientId,
       restriction_id: restrictionId,
+    });
+
+    ctx.redirect(`/patients/${patientId}/restrictions`);
+  },
+
+  async destroy(ctx) {
+    const patientId = +ctx.params.patientId;
+    const restrictionId = +ctx.params.restrictionId;
+
+    await PatientRestriction.destroy({
+      where: {
+        patient_id: patientId,
+        restriction_id: restrictionId,
+      },
     });
 
     ctx.redirect(`/patients/${patientId}/restrictions`);
