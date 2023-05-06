@@ -8,6 +8,11 @@ const FoodRestriction = connection.define('FoodRestriction', {
     allowNull: false,
     primaryKey: true,
   },
+}, {
+  indexes: [{
+    unique: true,
+    fields: ['food_id', 'restriction_id'],
+  }],
 });
 
 export default FoodRestriction;

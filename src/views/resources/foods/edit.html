@@ -5,6 +5,7 @@
     <input id="amount" name="amount" value="<%= data.resource.amount %>"/>
     <input type="submit" value="Update"/>
 </form>
+<a href="/foods/<%= data.resource.id %>/restrictions">View restrictions</a>
 
 <form action="/foods/<%= data.resource.name %>/delete" method="post">
     <input type="submit" value="Delete"/>

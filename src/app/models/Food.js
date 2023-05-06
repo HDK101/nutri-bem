@@ -3,6 +3,11 @@ import connection from '@/database/connection';
 import FoodRestriction from './FoodRestriction';
 
 const Food = connection.define('Food', {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
   name: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -17,11 +22,12 @@ Food.associate = (models) => {
   const { Restriction, Menu } = models;
 
   Food.belongsToMany(Menu, {
-      through: 'menu_food',
+    through: 'menu_food',
   });
 
   Food.belongsToMany(Restriction, {
-      through: FoodRestriction,
+    through: FoodRestriction,
+    foreignKey: 'food_id',
   });
 };
 

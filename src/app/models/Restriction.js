@@ -18,9 +18,9 @@ Restriction.associate = (models) => {
     foreignKey: 'restriction_id',
   });
 
-  // Acho que as restricoes sera M:N para alimentos
-  Restriction.belongsTo(Food, {
+  Restriction.belongsToMany(Food, {
     through: FoodRestriction,
+    foreignKey: 'restriction_id',
   });
 };
 
