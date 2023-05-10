@@ -28,8 +28,8 @@ const Menu = connection.define('Menu', {
 Menu.associate = (models) => {
   const { Food } = models;
 
-  Menu.hasMany(Food, {
-    foreignKey: 'menu_id',
+  Menu.belongsToMany(Food, {
+      through: 'menu_food',
   });
 };
 

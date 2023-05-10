@@ -1,19 +1,25 @@
 <form action="/patients/<%= data.resource.id %>/update" method="post">
     <label for="name">Patient name: </label>
     <input id="name" name="name" value="<%= data.resource.name %>"/>
+    <p><%= formErrors?.name %></p>
     <label for="document">Document: </label>
     <input id="document" name="document" value="<%= data.resource.document %>"/>
+    <p><%= formErrors?.document %></p>
     <label for="height">Height: </label>
     <input id="height" name="height" value="<%= data.resource.height %>"/>
-    <label for="weigth">Weigth: </label>
-    <input id="weigth" name="weigth" value="<%= data.resource.weigth %>"/>
+    <p><%= formErrors?.height %></p>
+    <label for="weight">Weight: </label>
+    <input id="weight" name="weight" value="<%= data.resource.weight %>"/>
+    <p><%= formErrors?.weight %></p>
     <label for="sex">Sex: </label>
     <input id="sex" name="sex" value="<%= data.resource.sex %>"/>
+    <p><%= formErrors?.sex%></p>
     <label for="historic">Historic: </label>
     <input id="historic" name="historic" value="<%= data.resource.historic %>"/>
     <input type="submit" value="Update"/>
     
 </form>
+<a href="/patients/<%= data.resource.id %>/restrictions">View restrictions</a>
 
 <form action="/patients/<%= data.resource.id %>/delete" method="post">
     <input type="submit" value="Delete"/>
