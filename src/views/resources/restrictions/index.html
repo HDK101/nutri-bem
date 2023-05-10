@@ -1,8 +1,16 @@
 <% for (const resource of data.resources) { %>
-    <p>
-        <%= resource.id %>
-        <%= resource.name %>
-    </p>
+    <table class="table table-bordered border-dark table-hover">
+        <tr>
+          <th scope="col">RESTRICTION</th>
+          <th scope="col">OPERATION</th>
+        </tr>
+        <tr>
+          <td scope="row"><%= resource.name %></td>
+          <td>
+            <button class="btn"><i class="fa fa-trash"></i></button>
+          </td>
+        </tr>
+      </table>
     <a href="/restrictions/<%= resource.id %>/edit">Update</a>
     <br>
     <% } %>

@@ -1,10 +1,22 @@
 <% for (const resource of data.resources) { %>
-    <p>
-        <%= resource.id %>
-        <%= resource.name %>
-        <%= resource.time %>
-        <%= resource.notes %>
-    </p>
+    <table class="table table-bordered border-dark table-hover">
+        <tr>
+          <th scope="col">TIME</th>
+          <th scope="col">FOOD</th>
+          <th scope="col">NOTES</th>
+          <th scope="col">OPERATION</th>
+        </tr>
+        <tr>
+
+          <td scope="row"><%= resource.time %></td>
+          <td><%= resource.name %></td>
+          <td><%= resource.notes %></td>
+          <td>
+            <button class="btn"><i class="fa fa-pencil"></i></button>
+            <button class="btn"><i class="fa fa-trash"></i></button>
+          </td>
+        </tr>
+      </table>
     <a href="/menus/<%= resource.id %>/edit">Update</a>
     <br>
     <% } %>
