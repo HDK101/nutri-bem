@@ -24,7 +24,7 @@ class HomeController {
       }
       ctx.redirect('/home')
     } else {
-      ctx.redirect('login');
+      ctx.redirect('/');
     }
   }
 }
