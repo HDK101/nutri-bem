@@ -8,7 +8,7 @@ const User = connection.define('User', {
     autoIncrement: true,
   },
   name: DataTypes.STRING,
-  email: {
+  login: {
     type: DataTypes.STRING,
     unique: true
   },

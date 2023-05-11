@@ -63,7 +63,9 @@ const restrictionRouter = CRUDRouter(RestrictionController, {
   },
 });
 
-router.get('/', HomeController.index);
+router.get('/', HomeController.login)
+router.get('/home', HomeController.index);
+router.post('/session', HomeController.session);
 router.use('/users', userRouter);
 router.use('/patients', patientRouter.routes());
 router.use('/menus', menuRouter.routes());
