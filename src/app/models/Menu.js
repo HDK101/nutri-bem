@@ -20,7 +20,7 @@ const Menu = connection.define('Menu', {
     primaryKey: false,
   },
   notes: {
-    // type: DataTypes.STRING,
+    type: DataTypes.STRING,
     allowNull: true,
     primaryKey: false,
   },
