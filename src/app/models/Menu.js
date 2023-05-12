@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize';
 import connection from '@/database/connection';
+import MenuFood from './MenuFood';
 
 const Menu = connection.define('Menu', {
   id: {
@@ -19,7 +20,7 @@ const Menu = connection.define('Menu', {
     primaryKey: false,
   },
   notes: {
-    type: DataTypes.STRING,
+    // type: DataTypes.STRING,
     allowNull: true,
     primaryKey: false,
   },
@@ -29,7 +30,7 @@ Menu.associate = (models) => {
   const { Food } = models;
 
   Menu.belongsToMany(Food, {
-      through: 'menu_food',
+    through: MenuFood,
   });
 };
 

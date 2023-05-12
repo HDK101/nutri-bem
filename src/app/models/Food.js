@@ -1,6 +1,7 @@
 import { DataTypes } from 'sequelize';
 import connection from '@/database/connection';
 import FoodRestriction from './FoodRestriction';
+import MenuFood from './MenuFood';
 
 const Food = connection.define('Food', {
   id: {
@@ -22,7 +23,7 @@ Food.associate = (models) => {
   const { Restriction, Menu } = models;
 
   Food.belongsToMany(Menu, {
-    through: 'menu_food',
+    through: MenuFood,
   });
 
   Food.belongsToMany(Restriction, {
