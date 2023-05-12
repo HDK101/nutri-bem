@@ -13,17 +13,14 @@ import FoodRestrictionController from '@/app/controllers/FoodRestrictionControll
 import CRUDRouter from '../crud/CRUDRouter';
 import UserController from '../app/controllers/UserController';
 import MenuFoodController from '@/app/controllers/MenuFoodController';
+import createUser from '@/app/schemas/createUser';
 
 const router = new Router();
 
-const schema = object({
-  name: string().required('Campo de nome está vazio').min(10, 'Mínimo de dez caracteres'),
-});
-
 const userRouter = CRUDRouter(UserController, {
   schemas: {
-    create: schema,
-    update: schema,
+    create: createUser,
+    update: createUser,
   },
   resource: 'users',
 }).routes();
