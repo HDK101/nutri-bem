@@ -19,5 +19,6 @@ module.exports = {
     'import/extensions': 'off',
     'class-methods-use-this': 'off',
     'no-param-reassign': 'off',
+    'linebreak-style': ['error', 'unix']
   },
 };

@@ -10,12 +10,12 @@ const User = connection.define('User', {
   name: DataTypes.STRING,
   login: {
     type: DataTypes.STRING,
-    unique: true
+    unique: true,
   },
   password: {
     type: DataTypes.STRING,
-    unique: true
-  }
+    unique: true,
+  },
 });
 
 export default User;

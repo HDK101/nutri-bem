@@ -5,13 +5,13 @@ import MenuController from '@/app/controllers/MenuController';
 import FoodController from '@/app/controllers/FoodController';
 import PatientController from '@/app/controllers/PatientController';
 import RestrictionController from '@/app/controllers/RestrictionController';
-import UserController from '../app/controllers/UserController';
-import CRUDRouter from '../crud/CRUDRouter';
 import createPatient from '@/app/schemas/createPatient';
 import PatientRestrictionController from '@/app/controllers/PatientRestrictionController';
 import createFood from '@/app/schemas/createFood';
 import createRestriction from '@/app/schemas/createRestriction';
 import FoodRestrictionController from '@/app/controllers/FoodRestrictionController';
+import CRUDRouter from '../crud/CRUDRouter';
+import UserController from '../app/controllers/UserController';
 
 const router = new Router();
 
@@ -63,13 +63,13 @@ const restrictionRouter = CRUDRouter(RestrictionController, {
   },
 });
 
-router.get('/', HomeController.login)
+router.get('/', HomeController.login);
 router.get('/home', HomeController.index);
 router.post('/session', HomeController.session);
 router.use('/users', userRouter);
 router.use('/patients', patientRouter.routes());
 router.use('/menus', menuRouter.routes());
 router.use('/foods', foodRouter.routes());
-router.use('/restrictions',restrictionRouter.routes());
+router.use('/restrictions', restrictionRouter.routes());
 
 export default router.routes();

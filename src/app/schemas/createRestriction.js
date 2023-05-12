@@ -1,4 +1,4 @@
-import * as yup from 'yup'
+import * as yup from 'yup';
 
 const createRestriction = yup.object({
   name: yup.string().required('Campo de nome está vazio'),

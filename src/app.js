@@ -19,7 +19,8 @@ async function start() {
   await sync();
 
   const app = new Koa();
-koaEjs(app, { root: join(__dirname, 'views'),
+  koaEjs(app, {
+    root: join(__dirname, 'views'),
     layout: 'template',
     viewExt: 'html',
     cache: false,

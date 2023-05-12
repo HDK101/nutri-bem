@@ -1,4 +1,4 @@
-import User from "../models/User";
+import User from '../models/User';
 
 class HomeController {
   static async index(ctx) {
@@ -13,16 +13,16 @@ class HomeController {
     const user = await User.findOne({
       where: {
         login: ctx.request.body.login,
-        password: ctx.request.body.password
-      }
+        password: ctx.request.body.password,
+      },
     });
 
     if (user !== null) {
       ctx.session = {
         login: ctx.request.body.login,
-        password: ctx.request.body.password
-      }
-      ctx.redirect('/home')
+        password: ctx.request.body.password,
+      };
+      ctx.redirect('/home');
     } else {
       ctx.redirect('/');
     }

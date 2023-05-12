@@ -1,7 +1,7 @@
-import {Op} from "sequelize";
-import Food from "../models/Food";
-import FoodRestriction from "../models/FoodRestriction";
-import Restriction from "../models/Restriction";
+import { Op } from 'sequelize';
+import Food from '../models/Food';
+import FoodRestriction from '../models/FoodRestriction';
+import Restriction from '../models/Restriction';
 
 const FoodRestrictionController = {
   async index(ctx) {
@@ -10,7 +10,7 @@ const FoodRestrictionController = {
       include: Restriction,
     });
 
-    const restrictionIds = food.Restrictions.map(f => f.id);
+    const restrictionIds = food.Restrictions.map((f) => f.id);
     const restrictions = await Restriction.findAll({
       where: {
         id: {

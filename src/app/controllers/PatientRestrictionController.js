@@ -1,7 +1,7 @@
-import {Op} from "sequelize";
-import Patient from "../models/Patient";
-import PatientRestriction from "../models/PatientRestriction";
-import Restriction from "../models/Restriction";
+import { Op } from 'sequelize';
+import Patient from '../models/Patient';
+import PatientRestriction from '../models/PatientRestriction';
+import Restriction from '../models/Restriction';
 
 const PatientRestrictionController = {
   async index(ctx) {
@@ -10,7 +10,7 @@ const PatientRestrictionController = {
       include: Restriction,
     });
 
-    const restrictionIds = patient.Restrictions.map(r => r.id);
+    const restrictionIds = patient.Restrictions.map((r) => r.id);
     const restrictions = await Restriction.findAll({
       where: {
         id: {
