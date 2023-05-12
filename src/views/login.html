@@ -2,20 +2,20 @@
 
   <form method="post" action="/session" class="form-signin form-margin text-center  ">
     <div>
-      <h4>Enter with data</h4>
+      <h4>Entre com os dados de Login</h4>
     </div>
     <div class="form-floating mb-3">
       <input type="text" name="login" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Login address</label>
+      <label for="floatingInput">Email de Login</label>
       <p><%= formErrors?.login%></p>
     </div>
     <div class="form-floating">
       <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Password</label>
+      <label for="floatingPassword">Senha</label>
       <p><%= formErrors?.password%></p>
     </div>
     <div>
-      <button type="submit" class="btn btn-primary">Sign in</button>
+      <button type="submit" class="btn btn-primary">Login</button>
     </div>
   </form>
 
