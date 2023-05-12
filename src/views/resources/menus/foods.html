@@ -1,5 +1,5 @@
 <h1>Current foods</h1>
-<% for (const food of data.foods) { %>
+<% for (const food of data.currentFoods) { %>
     <p>
         <%= food.id %>
         <%= food.name %>
@@ -10,7 +10,7 @@
     <br>
 <% } %>
 <h1>Select foods</h1>
-<% for (const restriction of data.restrictions) { %>
+<% for (const food of data.foods) { %>
     <p>
         <%= food.id %>
         <%= food.name %>

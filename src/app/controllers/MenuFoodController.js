@@ -1,7 +1,7 @@
-import { Op } from 'sequelize';
-import Menu from '../models/Menu';
-import Food from '../models/Food';
-import MenuFood from '../models/MenuFood';
+import { Op } from "sequelize";
+import Menu from "../models/Menu";
+import Food from "../models/Food";
+import MenuFood from "../models/MenuFood";
 
 const MenuFoodController = {
   async index(ctx) {
@@ -10,7 +10,7 @@ const MenuFoodController = {
       include: Food,
     });
 
-    const foodIds = Menu.Foods.map((r) => r.id);
+    const foodIds = menu.Food.map((r) => r.id);
     const foods = await Food.findAll({
       where: {
         id: {
@@ -19,20 +19,20 @@ const MenuFoodController = {
       },
     });
 
-    return ctx.view('resources/menus/associate', {
+    return ctx.view('resources/menus/foods', {
       menu,
       foods,
-      currentFoods: menu.Foods,
+      currentFoods: menu.Food,
     });
   },
 
   async store(ctx) {
     const menuId = +ctx.params.menuId;
-    const restrictionId = +ctx.params.restrictionId;
+    const foodId = +ctx.params.foodId;
 
     await MenuFood.create({
       menu_id: menuId,
-      restriction_id: restrictionId,
+      food_id: foodId,
     });
 
     ctx.redirect(`/menus/${menuId}/foods`);
@@ -40,12 +40,12 @@ const MenuFoodController = {
 
   async destroy(ctx) {
     const menuId = +ctx.params.menuId;
-    const restrictionId = +ctx.params.restrictionId;
+    const foodId = +ctx.params.foodId;
 
     await MenuFood.destroy({
       where: {
         menu_id: menuId,
-        restriction_id: restrictionId,
+        food_id: foodId,
       },
     });
 

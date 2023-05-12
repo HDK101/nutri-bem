@@ -10,7 +10,7 @@ const MenuFood = connection.define('MenuFood', {
   },
   amount: {
     type: DataTypes.INTEGER,
-    allowNull: false,
+    allowNull: true,
   },
 }, {
   indexes: [{

@@ -12,6 +12,7 @@ import createRestriction from '@/app/schemas/createRestriction';
 import FoodRestrictionController from '@/app/controllers/FoodRestrictionController';
 import CRUDRouter from '../crud/CRUDRouter';
 import UserController from '../app/controllers/UserController';
+import MenuFoodController from '@/app/controllers/MenuFoodController';
 
 const router = new Router();
 
@@ -68,7 +69,12 @@ router.get('/home', HomeController.index);
 router.post('/session', HomeController.session);
 router.use('/users', userRouter);
 router.use('/patients', patientRouter.routes());
+
 router.use('/menus', menuRouter.routes());
+router.get('/menus/:menuId/foods', MenuFoodController.index);
+router.post('/menus/:menuId/foods/:foodId', MenuFoodController.store);
+router.post('/menus/:menuId/foods/:foodId/delete', MenuFoodController.destroy);
+
 router.use('/foods', foodRouter.routes());
 router.use('/restrictions', restrictionRouter.routes());
 
