@@ -31,6 +31,7 @@ Menu.associate = (models) => {
 
   Menu.belongsToMany(Food, {
     through: MenuFood,
+    foreignKey: 'food_id',
   });
 };
 

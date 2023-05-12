@@ -8,6 +8,10 @@ const MenuFood = connection.define('MenuFood', {
     autoIncrement: true,
     allowNull: false,
   },
+  amount: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
 }, {
   indexes: [{
     unique: true,

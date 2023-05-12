@@ -13,10 +13,6 @@ const Food = connection.define('Food', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  amount: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
 });
 
 Food.associate = (models) => {
@@ -24,6 +20,7 @@ Food.associate = (models) => {
 
   Food.belongsToMany(Menu, {
     through: MenuFood,
+    foreignKey: 'food_id',
   });
 
   Food.belongsToMany(Restriction, {
