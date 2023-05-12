@@ -1,24 +1,38 @@
+
+
 <% for (const resource of data.resources) { %>
 
-    <table class="table table-bordered border-dark table-hover">
+  <div class="m-5">
+    <h1 class="text-center">Alimentos</h1>
+    <br>
+    <input type="text" placeholder="Pesquisar por nome do alimento" size="50">
+    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+    <button>
+      <a href="/foods/create" class="text-reset text-decoration-none">Adicionar novo alimento</a>
+    </button>
+    <br>
+    <br>
+    <table class="table table-bordered border-dark table-hover text-center table-light align-middle">
+      <thead class="table-dark">
         <tr>
           <th scope="col">ID</th>
-          <th scope="col">FOOD</th>
-          <th scope="col">AMOUNT</th>
-          <th scope="col">OPERATION</th>
+      <th scope="col">ALIMENTO</th>
+      <th scope="col">QUANTIDADE</th>
+      <th scope="col">OPERAÇÃO</th>
         </tr>
+      </thead>
+      <tbody>
         <tr>
           <td scope="row"><%= resource.id %></td>
-          <td><%= resource.name %></td>
-          <td><%= resource.amount %></td>
+      <td><%= resource.name %></td>
+      <td><%= resource.amount %></td>
           <td>
-            <button class="btn"><i class="fa fa-pencil"></i></button>
-            <button class="btn"><i class="fa fa-trash"></i></button>
+            <button class="btn"><a href="/foods/<%= resource.id %>/edit"><i class="fa-solid fa-eye"></i></a></button>
+            <form action="/foods/<%= resource.id %>/delete" method="post"><button class="btn"><i
+                  class="fa fa-trash"></i></button></form>
           </td>
         </tr>
-      </table>
-    <a href="/foods/<%= resource.id %>/edit">View</a>
-    <br>
-    <% } %>
-    <a href="/foods/create">Create</a>
-    <%= formErrors?.name %>
+      </tbody>
+      <% } %>
+    </table>
+  </div>
