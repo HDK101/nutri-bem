@@ -1,0 +1,22 @@
+<h1>Current foods</h1>
+<% for (const food of data.foods) { %>
+    <p>
+        <%= food.id %>
+        <%= food.name %>
+    </p>
+    <form action="/menus/<%= data.menu.id %>/foods/<%= food.id %>/delete" method="post">
+      <input type="submit" value="Delete">
+    </form>
+    <br>
+<% } %>
+<h1>Select foods</h1>
+<% for (const restriction of data.restrictions) { %>
+    <p>
+        <%= food.id %>
+        <%= food.name %>
+    </p>
+    <form action="/menus/<%= data.menu.id %>/foods/<%= food.id %>" method="post">
+      <input type="submit" value="Select">
+    </form>
+    <br>
+<% } %>
