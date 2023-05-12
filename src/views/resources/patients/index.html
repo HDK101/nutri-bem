@@ -1,36 +1,60 @@
 <% for (const resource of data.resources) { %>
-    
-    <table class="table table-bordered border-dark table-hover">
+
+  <div class="m-5">
+    <h1 class="text-center">Pacientes</h1>
+    <br>
+    <input type="text" placeholder="Pesquisar por nome do paciente" size="50">
+    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+    <button>
+      <a href="/patients/create" class="text-reset text-decoration-none">Adicionar novo paciente</a>
+    </button>
+    <br>
+    <br>
+    <table class="table table-bordered border-dark table-hover text-center table-light align-middle">
+      <thead class="table-dark">
         <tr>
           <th scope="col">ID</th>
-          <th scope="col">NAME</th>
-          <th scope="col">DOCUMENT</th>
-          <th scope="col">HEIGHT</th>
-          <th scope="col">WEIGHT</th>
-          <th scope="col">SEX</th>
-          <th scope="col">HISTORIC</th>
-          <th scope="col">OPERATION</th>
+          <th scope="col">NOME</th>
+          <th scope="col">CPF</th>
+          <th scope="col">ALTURA</th>
+          <th scope="col">PESO</th>
+          <th scope="col">SEXO</th>
+          <th scope="col">HISTÓRICO</th>
+          <th scope="col">OPERAÇÃO</th>
         </tr>
+      </thead>
+      <tbody>
         <tr>
-          <td scope="row"><%= resource.id %></td>
-          <td><%= resource.name %></td>
-          <td><%= resource.document %></td>
-          <td><%= resource.heigth %></td>
-          <td><<%= resource.weigth %>/td>
-          <td><%= resource.sex %></td>
-          <td><%= resource.historic %></td>
+          <td scope="row">
+            <%= resource.id %>
+          </td>
           <td>
+            <%= resource.name %>
+          </td>
+          <td>
+            <%= resource.document %>
+          </td>
+          <td>
+            <%= resource.height %>
+          </td>
+          <td>
+            <%= resource.weight %>
+          </td>
+          <td>
+            <%= resource.sex %>
+          </td>
+          <td>
+            <%= resource.historic %>
+          </td>
+          <td>
+            <button class="btn"><a href="/patients/<%= resource.id %>/edit"><i class="fa-solid fa-eye"></i></a></button>
             <button class="btn"><i class="fa fa-utensils"></i></button>
             <button class="btn"><i class="fa fa-ban"></i></button>
-            <button class="btn"><i class="fa fa-pencil"></i></button>
-            <button class="btn"><i class="fa fa-trash"></i></button>
+            <form action="/patients/<%= resource.id %>/delete" method="post"><button class="btn"><i
+                  class="fa fa-trash"></i></button></form>
           </td>
         </tr>
-      </table>
-
-    <a href="/patients/<%= resource.id %>/edit">View</a>
-    <br>
-    <% } %>
-    <a href="/patients/create">Create</a>
-    <%= formErrors?.name %>
-
+      </tbody>
+      <% } %>
+    </table>
+  </div>
