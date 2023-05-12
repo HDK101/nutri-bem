@@ -1,5 +1,3 @@
-<% for (const resource of data.resources) { %>
-
   <div class="m-5">
     <h1 class="text-center">Cardápios</h1>
     <br>
@@ -14,12 +12,13 @@
       <thead class="table-dark">
         <tr>
           <th scope="col">HORÁRIO</th>
-          <th scope="col">ALIMENTO</th>
+          <th scope="col">NOME</th>
           <th scope="col">OBSERVAÇÕES</th>
           <th scope="col">OPERAÇÃO</th>
         </tr>
       </thead>
       <tbody>
+        <% for (const resource of data.resources) { %>
         <tr>
           <td scope="row">
             <%= resource.time %>
@@ -32,11 +31,12 @@
           </td>
           <td>
             <button class="btn"><a href="/menus/<%= resource.id %>/edit"><i class="fa-solid fa-eye"></i></a></button>
+            <button class="btn"><a href="/menus/<%= resource.id %>/foods"><i class="fa-solid fa-eye"></i></a></button>
             <form action="/menus/<%= resource.id %>/delete" method="post"><button class="btn"><i
                   class="fa fa-trash"></i></button></form>
           </td>
         </tr>
+        <% } %>
       </tbody>
-      <% } %>
     </table>
   </div>
