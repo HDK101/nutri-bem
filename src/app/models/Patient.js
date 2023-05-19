@@ -1,6 +1,7 @@
 import { DataTypes } from 'sequelize';
 import connection from '@/database/connection';
 import PatientRestriction from './PatientRestriction';
+import MenuPatient from './MenuPatient';
 
 const Patient = connection.define('Patient', {
   id: {
@@ -47,6 +48,11 @@ Patient.associate = (models) => {
 
   Patient.belongsToMany(Restriction, {
     through: PatientRestriction,
+    foreignKey: 'patient_id',
+  });
+
+  Patient.belongsToMany(Menu, {
+    through: MenuPatient,
     foreignKey: 'patient_id',
   });
 

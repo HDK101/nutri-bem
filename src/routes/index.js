@@ -14,6 +14,7 @@ import CRUDRouter from '../crud/CRUDRouter';
 import UserController from '../app/controllers/UserController';
 import MenuFoodController from '@/app/controllers/MenuFoodController';
 import createUser from '@/app/schemas/createUser';
+import MenuPatientController from '@/app/controllers/MenuPatientController';
 
 const router = new Router();
 
@@ -68,6 +69,8 @@ router.use('/users', userRouter);
 router.use('/patients', patientRouter.routes());
 
 router.use('/menus', menuRouter.routes());
+router.get('/menus/:menuId/patient', MenuPatientController.index);
+router.post('/menus/:menuId/patient/:patientId', MenuPatientController.store);
 router.get('/menus/:menuId/foods', MenuFoodController.index);
 router.get('/menus/:menuId/foods/:foodId/amount', MenuFoodController.amount);
 router.post('/menus/:menuId/foods/:foodId', MenuFoodController.store);

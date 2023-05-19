@@ -2,6 +2,7 @@ import Food from '@/app/models/Food';
 import FoodRestriction from '@/app/models/FoodRestriction';
 import Menu from '@/app/models/Menu';
 import MenuFood from '@/app/models/MenuFood';
+import MenuPatient from '@/app/models/MenuPatient';
 import Patient from '@/app/models/Patient';
 import PatientRestriction from '@/app/models/PatientRestriction';
 import Restriction from '@/app/models/Restriction';
@@ -16,4 +17,5 @@ export default async function sync() {
   await FoodRestriction.sync({ alter: true });
   await PatientRestriction.sync({ alter: true });
   await MenuFood.sync({ alter: true });
+  await MenuPatient.sync({ alter: true });
 }

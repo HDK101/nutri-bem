@@ -3,6 +3,7 @@ export default function CRUDController(Model, options = {}) {
     exclude,
     routesOnly,
     resource,
+    include,
   } = options;
 
   if (!resource) throw new Error('"resource" must be set to a string');
@@ -12,7 +13,7 @@ export default function CRUDController(Model, options = {}) {
       attributes: {
         exclude,
       },
-      include: ctx.query.include,
+      include,
     });
 
     return ctx.view(`resources/${resource}/index`, {
@@ -22,15 +23,13 @@ export default function CRUDController(Model, options = {}) {
 
   async function edit(ctx) {
     const res = await Model.findByPk(+ctx.params.id, {
-      include: ctx.query.include,
       attributes: {
         exclude,
       },
+      include,
     });
 
     if (!res) throw new Error('Not found');
-
-    console.log(res);
 
     return ctx.view(`resources/${resource}/edit`, {
       resource: res,
@@ -43,7 +42,13 @@ export default function CRUDController(Model, options = {}) {
 
   async function store(ctx) {
     ctx.body = await Model.create(ctx.request.body);
-    ctx.redirect(resource);
+
+    if (!include) {
+      ctx.redirect(resource);
+      return;
+    }
+
+    ctx.redirect(`${resource}?include=${include}`);
   }
 
   async function update(ctx) {
