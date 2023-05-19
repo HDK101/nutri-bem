@@ -1,0 +1,12 @@
+<h1>Select patient</h1>
+<% for (const patient of data.patients) { %>
+    <p>
+        <%= patient.id %>
+        <%= patient.name %>
+    </p>
+    <form action="/menus/<%= data.menu.id %>/patient/<%= patient.id %>" method="post">
+      <input type="submit" value="Delete">
+    </form>
+    <br>
+<% } %>
+
