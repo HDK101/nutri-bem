@@ -69,6 +69,7 @@ router.use('/patients', patientRouter.routes());
 
 router.use('/menus', menuRouter.routes());
 router.get('/menus/:menuId/foods', MenuFoodController.index);
+router.get('/menus/:menuId/foods/:foodId/amount', MenuFoodController.amount);
 router.post('/menus/:menuId/foods/:foodId', MenuFoodController.store);
 router.post('/menus/:menuId/foods/:foodId/delete', MenuFoodController.destroy);
 

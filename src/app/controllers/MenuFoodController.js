@@ -10,7 +10,9 @@ const MenuFoodController = {
       include: Food,
     });
 
-    const foodIds = menu.Food.map((r) => r.id);
+    const currentFoods = menu.Food.map((r) => ({ id: r.id, name: r.name, amount: r.MenuFood.amount }));
+    const foodIds = currentFoods.map(food => food.id);
+
     const foods = await Food.findAll({
       where: {
         id: {
@@ -22,20 +24,32 @@ const MenuFoodController = {
     return ctx.view('resources/menus/foods', {
       menu,
       foods,
-      currentFoods: menu.Food,
+      currentFoods,
     });
   },
 
   async store(ctx) {
     const menuId = +ctx.params.menuId;
     const foodId = +ctx.params.foodId;
+    const { amount } = ctx.request.body;
 
     await MenuFood.create({
       menu_id: menuId,
       food_id: foodId,
+      amount,
     });
 
     ctx.redirect(`/menus/${menuId}/foods`);
+  },
+
+  async amount(ctx) {
+    const menuId = +ctx.params.menuId;
+    const foodId = +ctx.params.foodId;
+
+    return ctx.view('resources/menus/foodAmount', {
+      menuId,
+      foodId,
+    });
   },
 
   async destroy(ctx) {

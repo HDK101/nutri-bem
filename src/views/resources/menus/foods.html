@@ -3,6 +3,7 @@
     <p>
         <%= food.id %>
         <%= food.name %>
+        <%= food.amount %>
     </p>
     <form action="/menus/<%= data.menu.id %>/foods/<%= food.id %>/delete" method="post">
       <input type="submit" value="Delete">
@@ -15,7 +16,7 @@
         <%= food.id %>
         <%= food.name %>
     </p>
-    <form action="/menus/<%= data.menu.id %>/foods/<%= food.id %>" method="post">
+    <form action="/menus/<%= data.menu.id %>/foods/<%= food.id %>/amount" method="get">
       <input type="submit" value="Select">
     </form>
     <br>

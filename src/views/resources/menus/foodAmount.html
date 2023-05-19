@@ -1,0 +1,6 @@
+<form action="/menus/<%= data.menuId %>/foods/<%= data.foodId %>" method="post">
+  <label for="amount">Amount: </label>
+  <input id="amount" name="amount" />
+  <p><%= formErrors?.amount %></p>
+  <input type="submit" value="Send"/>
+</form>
