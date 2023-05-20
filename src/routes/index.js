@@ -73,6 +73,7 @@ router.post('/patients/:patientId/restrictions/:restrictionId', PatientRestricti
 router.post('/patients/:patientId/restrictions/:restrictionId/delete', PatientRestrictionController.destroy);
 
 router.use('/menus', menuRouter.routes());
+router.get('/menus/patients', MenuController.patients);
 router.get('/menus/:menuId/patient', MenuPatientController.index);
 router.post('/menus/:menuId/patient/:patientId', MenuPatientController.store);
 router.get('/menus/:menuId/foods', MenuFoodController.index);

@@ -1,11 +1,13 @@
 import {Op} from "sequelize";
 
 function createSearchQuery({ column, value }) {
-  if (column && value ) return {
-    [column]: {
-      [Op.like]: `%${value}%`,
-    },
-  };
+  if (column && value) {
+    return {
+      [column]: {
+        [Op.like]: `%${value}%`,
+      },
+    };
+  }
   return null;
 }
 
@@ -53,14 +55,9 @@ export default function CRUDController(Model, options = {}) {
   }
 
   async function store(ctx) {
-    ctx.body = await Model.create(ctx.request.body);
+    await Model.create(ctx.request.body);
 
-    if (!include) {
-      ctx.redirect(resource);
-      return;
-    }
-
-    ctx.redirect(`${resource}?include=${include}`);
+    ctx.redirect(`${resource}`);
   }
 
   async function update(ctx) {

@@ -1,4 +1,5 @@
 <form action="/menus" method="post">
+  <input type="hidden" id="patient" name="patient" value="<%= ctx.query.patient %>" />
     <label for="name">Cardápio: </label>
     <input id="name" name="name" />
     <p><%= formErrors?.name %></p>

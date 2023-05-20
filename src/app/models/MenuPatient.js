@@ -8,11 +8,6 @@ const MenuPatient = connection.define('MenuPatient', {
     allowNull: false,
     primaryKey: true,
   },
-}, {
-  indexes: [{
-    unique: true,
-    fields: ['patient_id', 'menu_id'],
-  }],
 });
 
 export default MenuPatient;
