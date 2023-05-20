@@ -1,3 +1,6 @@
+import { UniqueConstraintError, ValidationError as SequelizeValidationError } from "sequelize";
+import { ValidationError as YupValidationError } from "yup";
+
 export default function validateForm(schema, options = {}) {
   const {
     type,
@@ -12,16 +15,36 @@ export default function validateForm(schema, options = {}) {
       });
       await next();
     } catch (err) {
-      console.log(err);
       const errorsMap = {};
 
-      err.inner.forEach((error) => {
-        errorsMap[error.path] = error.message;
-      });
+      console.log(err);
 
-      ctx.session.formErrors = errorsMap;
-      if (redirectType === 'edit') ctx.redirect(`/${resource}/${ctx.params.id}/edit`);
-      else if (redirectType === 'create') ctx.redirect(`/${resource}/create`);
+      if (err instanceof YupValidationError) {
+        err.inner.forEach((error) => {
+          errorsMap[error.path] = error.message;
+        });
+
+        ctx.session.formErrors = errorsMap;
+        if (redirectType === 'edit') ctx.redirect(`/${resource}/${ctx.params.id}/edit`);
+        else if (redirectType === 'create') ctx.redirect(`/${resource}/create`);
+      } else if (err instanceof UniqueConstraintError) {
+        err.errors.forEach((error) => {
+          errorsMap[error.path] = "Já está sendo utilizado";
+        });
+        ctx.session.formErrors = errorsMap;
+        if (redirectType === 'edit') ctx.redirect(`/${resource}/${ctx.params.id}/edit`);
+        else if (redirectType === 'create') ctx.redirect(`/${resource}/create`);
+      } else if (err instanceof SequelizeValidationError) {
+        err.errors.forEach((error) => {
+          errorsMap[error.path] = error.message;
+        });
+
+        ctx.session.formErrors = errorsMap;
+        if (redirectType === 'edit') ctx.redirect(`/${resource}/${ctx.params.id}/edit`);
+        else if (redirectType === 'create') ctx.redirect(`/${resource}/create`);
+      } else {
+        await next();
+      }
     }
   };
 }
