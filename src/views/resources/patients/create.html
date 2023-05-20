@@ -1,21 +1,21 @@
 <form action="/patients" method="post">
-    <label for="name">Patient name: </label>
+    <label for="name">Nome do paciente: </label>
     <input id="name" name="name" />
     <p><%= formErrors?.name %></p>
-    <label for="document">Document: </label>
+    <label for="document">CPF: </label>
     <input id="document" name="document" />
     <p><%= formErrors?.document %></p>
-    <label for="height">Height: </label>
+    <label for="height">Altura: </label>
     <input id="height" name="height" />
     <p><%= formErrors?.height %></p>
-    <label for="weight">Weight: </label>
+    <label for="weight">Peso: </label>
     <input id="weight" name="weight" />
     <p><%= formErrors?.weight %></p>
-    <label for="sex">Sex: </label>
+    <label for="sex">Sexo: </label>
     <input id="sex" name="sex" />
     <p><%= formErrors?.sex%></p>
-    <label for="historic">Historic: </label>
+    <label for="historic">Histórico: </label>
     <input id="historic" name="historic" />
     <p><%= formErrors?.historic%></p>
-    <input type="submit" value="Send"/>
+    <input type="submit" value="Enviar"/>
 </form>

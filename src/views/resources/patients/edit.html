@@ -1,26 +1,26 @@
 <form action="/patients/<%= data.resource.id %>/update" method="post">
-    <label for="name">Patient name: </label>
+    <label for="name">Nome do paciente: </label>
     <input id="name" name="name" value="<%= data.resource.name %>"/>
     <p><%= formErrors?.name %></p>
-    <label for="document">Document: </label>
+    <label for="document">CPF: </label>
     <input id="document" name="document" value="<%= data.resource.document %>"/>
     <p><%= formErrors?.document %></p>
-    <label for="height">Height: </label>
+    <label for="height">Altura: </label>
     <input id="height" name="height" value="<%= data.resource.height %>"/>
     <p><%= formErrors?.height %></p>
-    <label for="weight">Weight: </label>
+    <label for="weight">Peso: </label>
     <input id="weight" name="weight" value="<%= data.resource.weight %>"/>
     <p><%= formErrors?.weight %></p>
-    <label for="sex">Sex: </label>
+    <label for="sex">Sexo: </label>
     <input id="sex" name="sex" value="<%= data.resource.sex %>"/>
     <p><%= formErrors?.sex%></p>
-    <label for="historic">Historic: </label>
+    <label for="historic">Histórico: </label>
     <input id="historic" name="historic" value="<%= data.resource.historic %>"/>
-    <input type="submit" value="Update"/>
+    <input type="submit" value="Atualizar"/>
     
 </form>
-<a href="/patients/<%= data.resource.id %>/restrictions">View restrictions</a>
+<a href="/patients/<%= data.resource.id %>/restrictions">Ver restrições</a>
 
 <form action="/patients/<%= data.resource.id %>/delete" method="post">
-    <input type="submit" value="Delete"/>
+    <input type="submit" value="Deletar"/>
 </form>

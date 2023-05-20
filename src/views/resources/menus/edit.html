@@ -1,13 +1,13 @@
 <form action="/menus/<%= data.resource.id %>/update" method="post">
-    <label for="name">Menu: </label>
+    <label for="name">Cardápio: </label>
     <input id="name" name="name" value="<%= data.resource.name %>"/>
-    <label for="time">Time: </label>
+    <label for="time">Horário: </label>
     <input id="time" name="time" value="<%= data.resource.time %>"/>
-    <label for="notes">Notes: </label>
+    <label for="notes">Observações: </label>
     <input id="notes" name="notes" value="<%= data.resource.notes %>"/>
-    <input type="submit" value="Update"/>
+    <input type="submit" value="Atualizar"/>
 </form>
 
 <form action="/menus/<%= data.resource.id %>/delete" method="post">
-    <input type="submit" value="Delete"/>
+    <input type="submit" value="Deletar"/>
 </form>

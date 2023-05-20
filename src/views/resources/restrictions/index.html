@@ -1,8 +1,8 @@
 <% for (const resource of data.resources) { %>
     <table class="table table-bordered border-dark table-hover">
         <tr>
-          <th scope="col">RESTRICTION</th>
-          <th scope="col">OPERATION</th>
+          <th scope="col">RESTRIÇÃO</th>
+          <th scope="col">OPERAÇÃO</th>
         </tr>
         <tr>
           <td scope="row"><%= resource.name %></td>
@@ -11,8 +11,8 @@
           </td>
         </tr>
       </table>
-    <a href="/restrictions/<%= resource.id %>/edit">Update</a>
+    <a href="/restrictions/<%= resource.id %>/edit">Atualizar</a>
     <br>
     <% } %>
-    <a href="/restrictions/create">Create</a>
+    <a href="/restrictions/create">Cadastrar</a>
     <%= formErrors?.name %>

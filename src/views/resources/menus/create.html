@@ -1,11 +1,11 @@
 <form action="/menus" method="post">
-    <label for="name">Menu: </label>
+    <label for="name">Cardápio: </label>
     <input id="name" name="name" />
     <p><%= formErrors?.name %></p>
-    <label for="time">Time: </label>
+    <label for="time">Horário: </label>
     <input type="time" name="time" />
     <p><%= formErrors?.time %></p>
-    <label for="notes">Notes: </label>
+    <label for="notes">Observações: </label>
     <input id="notes" name="notes" />
     <input type="submit" value="Send"/>
 </form>
