@@ -6,7 +6,9 @@ class HomeController {
   }
 
   static async login(ctx) {
-    return ctx.view('login');
+    return ctx.view('login', {
+      hideHeader: true,
+    });
   }
 
   static async session(ctx) {
