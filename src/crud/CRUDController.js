@@ -1,3 +1,14 @@
+import {Op} from "sequelize";
+
+function createSearchQuery({ column, value }) {
+  if (column && value ) return {
+    [column]: {
+      [Op.like]: `%${value}%`,
+    },
+  };
+  return null;
+}
+
 export default function CRUDController(Model, options = {}) {
   const {
     exclude,
@@ -10,6 +21,7 @@ export default function CRUDController(Model, options = {}) {
 
   async function index(ctx) {
     const resources = await Model.findAll({
+      where: createSearchQuery(ctx.query),
       attributes: {
         exclude,
       },

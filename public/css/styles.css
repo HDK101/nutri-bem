@@ -22,3 +22,8 @@
     margin: 15px;
 }
 
+.horizontal-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

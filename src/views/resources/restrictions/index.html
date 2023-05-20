@@ -1,18 +1,26 @@
-<% for (const resource of data.resources) { %>
+    <div class="horizontal-group">
+      <form>
+        <input type="hidden" name="column" value="name" >
+        <input name="value" type="text" placeholder="Pesquisar por nome da restrição" size="50">
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+    </div>
+
     <table class="table table-bordered border-dark table-hover">
         <tr>
           <th scope="col">RESTRIÇÃO</th>
           <th scope="col">OPERAÇÃO</th>
         </tr>
+    <% for (const resource of data.resources) { %>
         <tr>
           <td scope="row"><%= resource.name %></td>
           <td>
             <button class="btn"><i class="fa fa-trash"></i></button>
           </td>
+          <a href="/restrictions/<%= resource.id %>/edit">Atualizar</a>
         </tr>
-      </table>
-    <a href="/restrictions/<%= resource.id %>/edit">Atualizar</a>
-    <br>
     <% } %>
+      </table>
+    <br>
     <a href="/restrictions/create">Cadastrar</a>
     <%= formErrors?.name %>

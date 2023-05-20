@@ -1,11 +1,16 @@
   <div class="m-5">
     <h1 class="text-center">Cardápios</h1>
     <br>
-    <input type="text" placeholder="Pesquisar por cardápio" size="50">
-    <button><i class="fa-solid fa-magnifying-glass"></i></button>
-    <button>
-      <a href="/menus/create" class="text-reset text-decoration-none">Adicionar novo cardápio</a>
-    </button>
+    <div class="horizontal-group">
+      <form>
+        <input type="hidden" name="column" value="name" >
+        <input name="value" type="text" placeholder="Pesquisar por cardápio" size="50">
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+      <button>
+        <a href="/menus/create" class="text-reset text-decoration-none">Adicionar novo cardápio</a>
+      </button>
+    </div>
     <br>
     <br>
     <table class="table table-bordered border-dark table-hover text-center table-light align-middle">
