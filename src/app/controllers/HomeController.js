@@ -27,6 +27,13 @@ class HomeController {
       ctx.redirect('/');
     }
   }
+
+  static async logout(ctx) {
+    if (ctx.session) {
+      ctx.session = null;
+      ctx.redirect('/');
+    }
+  }
 }
 
 export default HomeController;
