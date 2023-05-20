@@ -15,6 +15,7 @@ import UserController from '../app/controllers/UserController';
 import MenuFoodController from '@/app/controllers/MenuFoodController';
 import createUser from '@/app/schemas/createUser';
 import MenuPatientController from '@/app/controllers/MenuPatientController';
+import authorize from '@/app/middlewares/authorize';
 
 const router = new Router();
 
@@ -34,10 +35,6 @@ const patientRouter = CRUDRouter(PatientController, {
   resource: 'patients',
 });
 
-router.get('/patients/:patientId/restrictions', PatientRestrictionController.index);
-router.post('/patients/:patientId/restrictions/:restrictionId', PatientRestrictionController.store);
-router.post('/patients/:patientId/restrictions/:restrictionId/delete', PatientRestrictionController.destroy);
-
 const menuRouter = CRUDRouter(MenuController, {
   resource: 'menus',
 });
@@ -50,10 +47,6 @@ const foodRouter = CRUDRouter(FoodController, {
   },
 });
 
-router.get('/foods/:foodId/restrictions', FoodRestrictionController.index);
-router.post('/foods/:foodId/restrictions/:restrictionId', FoodRestrictionController.store);
-router.post('/foods/:foodId/restrictions/:restrictionId/delete', FoodRestrictionController.destroy);
-
 const restrictionRouter = CRUDRouter(RestrictionController, {
   resource: 'restrictions',
   schemas: {
@@ -63,11 +56,21 @@ const restrictionRouter = CRUDRouter(RestrictionController, {
 });
 
 router.get('/', HomeController.login);
-router.get('/home', HomeController.index);
 router.post('/session', HomeController.session);
+
+router.use(authorize);
+router.get('/home', HomeController.index);
 router.post('/logout', HomeController.logout);
 router.use('/users', userRouter);
 router.use('/patients', patientRouter.routes());
+
+router.get('/foods/:foodId/restrictions', FoodRestrictionController.index);
+router.post('/foods/:foodId/restrictions/:restrictionId', FoodRestrictionController.store);
+router.post('/foods/:foodId/restrictions/:restrictionId/delete', FoodRestrictionController.destroy);
+
+router.get('/patients/:patientId/restrictions', PatientRestrictionController.index);
+router.post('/patients/:patientId/restrictions/:restrictionId', PatientRestrictionController.store);
+router.post('/patients/:patientId/restrictions/:restrictionId/delete', PatientRestrictionController.destroy);
 
 router.use('/menus', menuRouter.routes());
 router.get('/menus/:menuId/patient', MenuPatientController.index);

@@ -21,8 +21,7 @@ class HomeController {
 
     if (user !== null) {
       ctx.session = {
-        login: ctx.request.body.login,
-        password: ctx.request.body.password,
+        id: user.id,
       };
       ctx.redirect('/home');
     } else {
