@@ -3,7 +3,7 @@
     <input id="name" name="name" />
     <p><%= formErrors?.name %></p>
     <label for="document">CPF: </label>
-    <input id="document" name="document" />
+    <input id="document" name="document" class="format-cpf" />
     <p><%= formErrors?.document %></p>
     <label for="height">Altura(em centímetros): </label>
     <input type="number" value="0" min="0" id="height" name="height" />
@@ -22,4 +22,3 @@
     <p><%= formErrors?.historic%></p>
     <input type="submit" value="Enviar"/>
 </form>
-<script src="/public/js/walter.js"></script>

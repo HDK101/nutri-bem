@@ -3,16 +3,20 @@
     <input id="name" name="name" value="<%= data.resource.name %>"/>
     <p><%= formErrors?.name %></p>
     <label for="document">CPF: </label>
-    <input id="document" name="document" value="<%= data.resource.document %>"/>
+    <input id="document" name="document" value="<%= data.resource.document %>" class="format-cpf"/>
     <p><%= formErrors?.document %></p>
-    <label for="height">Altura: </label>
-    <input id="height" name="height" value="<%= data.resource.height %>"/>
+    <label for="height">Altura(em centímetros): </label>
+    <input type="number" min="0" id="height" name="height" value="<%= data.resource.height %>"/>
     <p><%= formErrors?.height %></p>
-    <label for="weight">Peso: </label>
-    <input id="weight" name="weight" value="<%= data.resource.weight %>"/>
+    <label for="weight">Peso(em quilogramas): </label>
+    <input type="number" min="0" id="weight" name="weight" value="<%= data.resource.weight %>" />
     <p><%= formErrors?.weight %></p>
     <label for="sex">Sexo: </label>
     <input id="sex" name="sex" value="<%= data.resource.sex %>"/>
+    <select id="sex" name="sex">
+      <option <%= data.resource.sex === 'M' ? 'selected' : '' %> value="M">Masculino</option>
+      <option <%= data.resource.sex === 'F' ? 'selected' : '' %> value="F">Feminino</option>
+    </select>
     <p><%= formErrors?.sex%></p>
     <label for="historic">Histórico: </label>
     <input id="historic" name="historic" value="<%= data.resource.historic %>"/>
