@@ -1,29 +1,38 @@
 import { Op } from "sequelize";
 import Menu from "../models/Menu";
 import Food from "../models/Food";
+import QueryTypes from "sequelize";
+import {connection} from "@/database";
+
 import MenuFood from "../models/MenuFood";
+import Restriction from "../models/Restriction";
 
 const MenuFoodController = {
   async index(ctx) {
     const menuId = +ctx.params.menuId;
     const menu = await Menu.findByPk(menuId, {
-      include: Food,
+      include: [Food, 'patient'],
     });
 
+    const patient = menu.patient?.[0];
+    const restrictions = await patient.getRestrictions();
+    const restrictionIds = restrictions.map(restriction => restriction.id).join(',');
     const currentFoods = menu.Food.map((r) => ({ id: r.id, name: r.name, amount: r.MenuFood.amount }));
     const foodIds = currentFoods.map(food => food.id);
 
-    const foods = await Food.findAll({
-      where: {
-        id: {
-          [Op.notIn]: foodIds,
-        },
+    const toSelectFoods = await connection.query('SELECT * FROM Food f FULL JOIN FoodRestrictions fr ON f.id = fr.food_id WHERE fr.restriction_id IS NULL OR fr.restriction_id NOT IN (:restrictionIds) AND f.id NOT IN(:foodIds)', {
+      replacements: {
+        restrictionIds,
+        foodIds,
       },
+      model: Food,
+      mapToModel: true,
+      type: QueryTypes.SELECT,
     });
 
     return ctx.view('resources/menus/foods', {
       menu,
-      foods,
+      foods: toSelectFoods,
       currentFoods,
     });
   },
