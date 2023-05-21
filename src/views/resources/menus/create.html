@@ -1,12 +1,13 @@
 <form action="/menus" method="post">
   <input type="hidden" id="patient" name="patient" value="<%= ctx.query.patient %>" />
-    <label for="name">Cardápio: </label>
+    <label for="name">Nome: </label>
     <input id="name" name="name" />
     <p><%= formErrors?.name %></p>
     <label for="time">Horário: </label>
     <input type="time" name="time" />
     <p><%= formErrors?.time %></p>
     <label for="notes">Observações: </label>
-    <input id="notes" name="notes" />
+    <textarea id="notes" name="notes"></textarea>
+    <br>
     <input type="submit" value="Send"/>
 </form>

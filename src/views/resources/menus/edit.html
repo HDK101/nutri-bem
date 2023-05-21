@@ -1,13 +1,16 @@
 <form action="/menus/<%= data.resource.id %>/update" method="post">
     <label for="name">Cardápio: </label>
     <input id="name" name="name" value="<%= data.resource.name %>"/>
+    <p><%= formErrors?.name %></p>
     <label for="time">Horário: </label>
-    <input id="time" name="time" value="<%= data.resource.time %>"/>
+    <input type="time" name="time" value="<%= data.resource.time %>" />
+    <p><%= formErrors?.time %></p>
     <label for="notes">Observações: </label>
     <input id="notes" name="notes" value="<%= data.resource.notes %>"/>
+    <br>
     <input type="submit" value="Atualizar"/>
 </form>
-
+<br>
 <form action="/menus/<%= data.resource.id %>/delete" method="post">
     <input type="submit" value="Deletar"/>
 </form>
