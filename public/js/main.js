@@ -17,6 +17,7 @@ function formatCpf(text) {
   if (textNumbers.length > 3 && textNumbers.length <= 6) return `${firstGroup}.${secondGroup}`;
   if (textNumbers.length > 6 && textNumbers.length <= 9) return `${firstGroup}.${secondGroup}.${thirdGroup}`;
   if (textNumbers.length > 9) return `${firstGroup}.${secondGroup}.${thirdGroup}-${fourthGroup}`;
+  return '';
 }
 
 indexes.forEach((index) => {

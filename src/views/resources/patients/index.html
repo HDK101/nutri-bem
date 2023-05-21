@@ -56,11 +56,10 @@
                     class="fa-solid fa-eye"></i></a></button>
               <button class="btn"><i class="fa fa-utensils"></i></button>
               <button class="btn"><i class="fa fa-ban"></i></button>
-              <form class="m-0 p-0" action="/patients/<%= resource.id %>/delete" method="post">
-                <button class="btn">
-                  <i class="fa fa-trash"></i>
-                </button>
-              </form>
+              <%- include('../../partials/formIcon', {
+                to: `/patients/${resource.id}/delete`,
+                icon: 'fa fa-trash',
+              }) %>
             </div>
           </td>
         </tr>

@@ -15,7 +15,10 @@
         <tr>
           <td scope="row"><%= resource.name %></td>
           <td>
-            <button class="btn"><i class="fa fa-trash"></i></button>
+            <%- include('../../partials/formIcon', {
+              to: `/restrictions/${resource.id}/delete`,
+              icon: 'fa fa-trash',
+            }) %>
           </td>
           <a href="/restrictions/<%= resource.id %>/edit">Atualizar</a>
         </tr>

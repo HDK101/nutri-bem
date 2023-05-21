@@ -44,8 +44,10 @@
             <button class="btn"><a href="/menus/<%= resource.id %>/edit"><i class="fa-solid fa-eye"></i></a></button>
             <button class="btn"><a href="/menus/<%= resource.id %>/foods"><i class="fa-solid fa-eye"></i></a></button>
             <button class="btn"><a href="/menus/<%= resource.id %>/patient"><i class="fa-solid fa-eye"></i></a></button>
-            <form action="/menus/<%= resource.id %>/delete" method="post"><button class="btn"><i
-                  class="fa fa-trash"></i></button></form>
+            <%- include('../../partials/formIcon', {
+              to: `/menus/${resource.id}/delete`,
+              icon: 'fa fa-trash',
+            }) %>
           </td>
         </tr>
         <% } %>

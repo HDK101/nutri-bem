@@ -30,8 +30,10 @@
       <td><%= resource.amount %></td>
           <td>
             <button class="btn"><a href="/foods/<%= resource.id %>/edit"><i class="fa-solid fa-eye"></i></a></button>
-            <form action="/foods/<%= resource.id %>/delete" method="post"><button class="btn"><i
-                  class="fa fa-trash"></i></button></form>
+            <%- include('../../partials/formIcon', {
+              to: `/foods/${resource.id}/delete`,
+              icon: 'fa fa-trash',
+            }) %>
           </td>
         </tr>
       <% } %>
