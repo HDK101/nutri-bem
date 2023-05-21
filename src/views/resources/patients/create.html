@@ -5,17 +5,21 @@
     <label for="document">CPF: </label>
     <input id="document" name="document" />
     <p><%= formErrors?.document %></p>
-    <label for="height">Altura: </label>
-    <input id="height" name="height" />
+    <label for="height">Altura(em centímetros): </label>
+    <input type="number" value="0" min="0" id="height" name="height" />
     <p><%= formErrors?.height %></p>
-    <label for="weight">Peso: </label>
-    <input id="weight" name="weight" />
+    <label for="weight">Peso(em quilogramas): </label>
+    <input type="number" min="0" value="0" id="weight" name="weight" />
     <p><%= formErrors?.weight %></p>
     <label for="sex">Sexo: </label>
-    <input id="sex" name="sex" />
+    <select id="sex" name="sex">
+      <option value="M">Masculino</option>
+      <option value="F">Feminino</option>
+    </select>
     <p><%= formErrors?.sex%></p>
     <label for="historic">Histórico: </label>
     <input id="historic" name="historic" />
     <p><%= formErrors?.historic%></p>
     <input type="submit" value="Enviar"/>
 </form>
+<script src="/public/js/walter.js"></script>
