@@ -1,10 +1,10 @@
 .bg-gray {
-    background-color: rgba(224, 221, 221, 0.986);
+    background-color: rgba(188, 188, 188, 0.986);
 }
 
 .container-width-height {
-    width: 420px;
-    height: 245px;
+    width: 540px;
+    height: 320px;
     padding: 7px;
     position: absolute;
     top: 0; 
@@ -22,3 +22,7 @@
     margin: 15px;
 }
 
+.bg-image{
+    opacity: 0.3;
+
+}

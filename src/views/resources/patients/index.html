@@ -49,8 +49,8 @@
             <div class="d-flex flex-row align-items-center justify-content-center">
               <button class="btn"><a href="/patients/<%= resource.id %>/edit"><i
                     class="fa-solid fa-eye"></i></a></button>
-              <button class="btn"><i class="fa fa-utensils"></i></button>
-              <button class="btn"><i class="fa fa-ban"></i></button>
+              <button class="btn"><a href="/patients/<%= resource.id %>/menus"></a><i class="fa fa-utensils"></i></button>
+              <button class="btn"><a href="/patients/<%= resource.id %>/restrictions"></a><i class="fa fa-ban"></i></button>
               <form class="m-0 p-0" action="/patients/<%= resource.id %>/delete" method="post">
                 <button class="btn">
                   <i class="fa fa-trash"></i>

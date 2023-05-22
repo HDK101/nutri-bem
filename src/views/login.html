@@ -1,15 +1,16 @@
-<div class="container bg-white container-width-height border-radius align-content-center">
+<img src="/public/img/vegetables1.jpg" alt="vegetables" class="bg-image" />
+<div class="container bg-gray container-width-height border-radius align-content-center border border-dark">
 
-  <form method="post" action="/session" class="form-signin form-margin text-center  ">
+  <form method="post" action="/session" class="form-signin form-margin text-center ">
     <div>
-      <h4>Entre com os dados de Login</h4>
+      <h4 class="mt-4">Entre com os dados de Login</h4>
     </div>
-    <div class="form-floating mb-3">
+    <div class="form-floating mb-3 ms-4 me-4 mt-4">
       <input type="text" name="login" class="form-control" id="floatingInput" placeholder="name@example.com">
       <label for="floatingInput">Email de Login</label>
       <p><%= formErrors?.login%></p>
     </div>
-    <div class="form-floating">
+    <div class="form-floating ms-4 me-4">
       <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Senha</label>
       <p><%= formErrors?.password%></p>
