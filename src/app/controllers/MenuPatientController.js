@@ -23,10 +23,18 @@ const MenuPatientController = {
     const menuId = +ctx.params.menuId;
     const patientId = +ctx.params.patientId;
 
-    await MenuPatient.create({
-      menu_id: menuId,
-      patient_id: patientId,
+    const menuPatient = await MenuPatient.findOne({
+      where: {
+        menu_id: menuId,
+      },
     });
+
+    console.log(await MenuPatient.findAll());
+
+    menuPatient.set('menu_id', menuId);
+    menuPatient.set('patient_id', patientId);
+
+    await menuPatient.save();
 
     ctx.redirect(`/menus`);
   },

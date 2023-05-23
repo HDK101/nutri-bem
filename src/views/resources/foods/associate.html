@@ -9,14 +9,14 @@
     </form>
     <br>
 <% } %>
-<h1>Select restrictions</h1>
+<h1>Selecione as restrições</h1>
 <% for (const restriction of data.restrictions) { %>
     <p>
         <%= restriction.id %>
         <%= restriction.name %>
     </p>
     <form action="/foods/<%= data.food.id %>/restrictions/<%= restriction.id %>" method="post">
-      <input type="submit" value="Select">
+      <input type="submit" value="Selecione">
     </form>
     <br>
 <% } %>

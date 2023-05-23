@@ -1,11 +1,11 @@
-<h1>Select patient</h1>
+<h1>Selecionar paciente</h1>
 <% for (const patient of data.patients) { %>
     <p>
         <%= patient.id %>
         <%= patient.name %>
     </p>
     <form action="/menus/<%= data.menu.id %>/patient/<%= patient.id %>" method="post">
-      <input type="submit" value="Associate">
+      <input type="submit" value="Associar">
     </form>
     <br>
 <% } %>

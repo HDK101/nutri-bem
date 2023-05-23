@@ -1,4 +1,4 @@
-<h1>Current foods</h1>
+<h1>Alimentos atuais</h1>
 <% for (const food of data.currentFoods) { %>
     <p>
         <%= food.id %>
@@ -10,14 +10,14 @@
     </form>
     <br>
 <% } %>
-<h1>Select foods</h1>
+<h1>Selecione os alimentos</h1>
 <% for (const food of data.foods) { %>
     <p>
         <%= food.id %>
         <%= food.name %>
     </p>
     <form action="/menus/<%= data.menu.id %>/foods/<%= food.id %>/amount" method="get">
-      <input type="submit" value="Select">
+      <input type="submit" value="Selecionar">
     </form>
     <br>
 <% } %>

@@ -1,11 +1,11 @@
-<h1>Current restrictions</h1>
+<h1>Restrições atuais</h1>
 <% for (const restriction of data.currentRestrictions) { %>
     <p>
         <%= restriction.id %>
         <%= restriction.name %>
     </p>
     <form action="/patients/<%= data.patient.id %>/restrictions/<%= restriction.id %>/delete" method="post">
-      <input type="submit" value="Delete">
+      <input type="submit" value="Deletar">
     </form>
     <br>
 <% } %>
@@ -16,7 +16,7 @@
         <%= restriction.name %>
     </p>
     <form action="/patients/<%= data.patient.id %>/restrictions/<%= restriction.id %>" method="post">
-      <input type="submit" value="Select">
+      <input type="submit" value="Selecionar">
     </form>
     <br>
 <% } %>

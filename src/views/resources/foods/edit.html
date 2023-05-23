@@ -1,12 +1,12 @@
 <form action="/foods/<%= data.resource.name %>/update" method="post">
-    <label for="food">Food: </label>
+    <label for="food">Alimento: </label>
     <input id="food" name="food" value="<%= data.resource.name %>"/>
-    <label for="food">Amount: </label>
+    <label for="food">Quantidade: </label>
     <input id="amount" name="amount" value="<%= data.resource.amount %>"/>
-    <input type="submit" value="Update"/>
+    <input type="submit" value="Atualizar"/>
 </form>
-<a href="/foods/<%= data.resource.id %>/restrictions">View restrictions</a>
+<a href="/foods/<%= data.resource.id %>/restrictions">Ver restrições</a>
 
 <form action="/foods/<%= data.resource.name %>/delete" method="post">
-    <input type="submit" value="Delete"/>
+    <input type="submit" value="Deletar"/>
 </form>
