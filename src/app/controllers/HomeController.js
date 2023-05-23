@@ -6,7 +6,9 @@ class HomeController {
   }
 
   static async login(ctx) {
-    return ctx.view('login');
+    return ctx.view('login', {
+      hideHeader: true,
+    });
   }
 
   static async session(ctx) {
@@ -19,11 +21,17 @@ class HomeController {
 
     if (user !== null) {
       ctx.session = {
-        login: ctx.request.body.login,
-        password: ctx.request.body.password,
+        id: user.id,
       };
       ctx.redirect('/home');
     } else {
+      ctx.redirect('/');
+    }
+  }
+
+  static async logout(ctx) {
+    if (ctx.session) {
+      ctx.session = null;
       ctx.redirect('/');
     }
   }

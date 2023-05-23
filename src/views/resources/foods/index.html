@@ -1,11 +1,16 @@
   <div class="m-5">
     <h1 class="text-center">Alimentos</h1>
     <br>
-    <input type="text" placeholder="Pesquisar por nome do alimento" size="50">
-    <button><i class="fa-solid fa-magnifying-glass"></i></button>
-    <button>
-      <a href="/foods/create" class="text-reset text-decoration-none">Adicionar novo alimento</a>
-    </button>
+    <div class="horizontal-group">
+      <form>
+        <input type="hidden" name="column" value="name" >
+        <input name="value" type="text" placeholder="Pesquisar por nome do alimento" size="50">
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+      <button>
+        <a href="/foods/create" class="text-reset text-decoration-none">Adicionar novo alimento</a>
+      </button>
+    </div>
     <br>
     <br>
     <table class="table table-bordered border-dark table-hover text-center table-light align-middle">
@@ -25,8 +30,10 @@
       <td><%= resource.amount %></td>
           <td>
             <button class="btn"><a href="/foods/<%= resource.id %>/edit"><i class="fa-solid fa-eye"></i></a></button>
-            <form action="/foods/<%= resource.id %>/delete" method="post"><button class="btn"><i
-                  class="fa fa-trash"></i></button></form>
+            <%- include('../../partials/formIcon', {
+              to: `/foods/${resource.id}/delete`,
+              icon: 'fa fa-trash',
+            }) %>
           </td>
         </tr>
       <% } %>

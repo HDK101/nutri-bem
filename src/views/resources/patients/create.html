@@ -1,21 +1,24 @@
 <form action="/patients" method="post">
-    <label for="name">Patient name: </label>
+    <label for="name">Nome do paciente: </label>
     <input id="name" name="name" />
     <p><%= formErrors?.name %></p>
-    <label for="document">Document: </label>
-    <input id="document" name="document" />
+    <label for="document">CPF: </label>
+    <input id="document" name="document" class="format-cpf" />
     <p><%= formErrors?.document %></p>
-    <label for="height">Height: </label>
-    <input id="height" name="height" />
+    <label for="height">Altura(em centímetros): </label>
+    <input type="number" value="0" min="0" id="height" name="height" />
     <p><%= formErrors?.height %></p>
-    <label for="weight">Weight: </label>
-    <input id="weight" name="weight" />
+    <label for="weight">Peso(em quilogramas): </label>
+    <input type="number" min="0" value="0" id="weight" name="weight" />
     <p><%= formErrors?.weight %></p>
-    <label for="sex">Sex: </label>
-    <input id="sex" name="sex" />
+    <label for="sex">Sexo: </label>
+    <select id="sex" name="sex">
+      <option value="M">Masculino</option>
+      <option value="F">Feminino</option>
+    </select>
     <p><%= formErrors?.sex%></p>
-    <label for="historic">Historic: </label>
+    <label for="historic">Histórico: </label>
     <input id="historic" name="historic" />
     <p><%= formErrors?.historic%></p>
-    <input type="submit" value="Send"/>
+    <input type="submit" value="Enviar"/>
 </form>

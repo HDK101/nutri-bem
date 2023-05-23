@@ -1,11 +1,16 @@
   <div class="m-5">
     <h1 class="text-center">Cardápios</h1>
     <br>
-    <input type="text" placeholder="Pesquisar por cardápio" size="50">
-    <button><i class="fa-solid fa-magnifying-glass"></i></button>
-    <button>
-      <a href="/menus/create" class="text-reset text-decoration-none">Adicionar novo cardápio</a>
-    </button>
+    <div class="horizontal-group">
+      <form>
+        <input type="hidden" name="column" value="name" >
+        <input name="value" type="text" placeholder="Pesquisar por cardápio" size="50">
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+      <button>
+        <a href="/menus/patients" class="text-reset text-decoration-none">Adicionar novo cardápio</a>
+      </button>
+    </div>
     <br>
     <br>
     <table class="table table-bordered border-dark table-hover text-center table-light align-middle">
@@ -39,8 +44,10 @@
             <button class="btn"><a href="/menus/<%= resource.id %>/edit"><i class="fa-solid fa-eye"></i></a></button>
             <button class="btn"><a href="/menus/<%= resource.id %>/foods"><i class="fa-solid fa-eye"></i></a></button>
             <button class="btn"><a href="/menus/<%= resource.id %>/patient"><i class="fa-solid fa-eye"></i></a></button>
-            <form action="/menus/<%= resource.id %>/delete" method="post"><button class="btn"><i
-                  class="fa fa-trash"></i></button></form>
+            <%- include('../../partials/formIcon', {
+              to: `/menus/${resource.id}/delete`,
+              icon: 'fa fa-trash',
+            }) %>
           </td>
         </tr>
         <% } %>

@@ -1,0 +1,12 @@
+<h1>Selecione um paciente</h1>
+<% for (const patient of data.patients) { %>
+    <p>
+        <%= patient.id %>
+        <%= patient.name %>
+    </p>
+    <button>
+      <a href="/menus/create?patient=<%= patient.id %>">Selecionar</a>
+    </button>
+    <br>
+<% } %>
+
