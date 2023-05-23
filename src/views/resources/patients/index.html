@@ -1,15 +1,18 @@
   <div class="background">
     <div class="ms-5 me-5">
+      <br>
+      <br>
       <h1 class="text-center">Pacientes</h1>
       <br>
-    <div class="horizontal-group">
+      <br>
+    <div class="horizontal-group ">
       <form>
         <input type="hidden" name="column" value="name" >
-        <input name="value" type="text" placeholder="Pesquisar por nome do paciente" size="50">
-        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        <input name="value" type="text" placeholder="Pesquisar por nome do paciente" size="50" class="form-control border border-dark">
       </form>
-      <button>
-        <a href="/patients/create" class="text-reset text-decoration-none">Adicionar novo paciente</a>
+      <button class="btn btn-login ms-2 me-2"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button class="btn btn-login justify-content-end">
+        <a href="/patients/create" class="text-reset text-decoration-none "><i class="fa-solid fa-plus"></i>  Adicionar novo paciente</a>
       </button>
     </div>
     <br>
@@ -54,12 +57,12 @@
           <td>
             <div class="d-flex flex-row align-items-center justify-content-center">
               <button class="btn"><a href="/patients/<%= resource.id %>/edit"><i
-                    class="fa-solid fa-eye"></i></a></button>
-              <button class="btn"><a href="/patients/<%= resource.id %>/menus"></a><i class="fa fa-utensils"></i></button>
-              <button class="btn"><a href="/patients/<%= resource.id %>/restrictions"></a><i class="fa fa-ban"></i></button>
+                    class="fa-solid fa-eye icon"></i></a></button>
+              <button class="btn"><a href="/patients/<%= resource.id %>/menus"></a><i class="fa fa-utensils icon"></i></button>
+              <button class="btn"><a href="/patients/<%= resource.id %>/restrictions"></a><i class="fa fa-ban icon"></i></button>
               <%- include('../../partials/formIcon', {
                 to: `/patients/${resource.id}/delete`,
-                icon: 'fa fa-trash',
+                icon: 'fa fa-trash icon icon-trash',
               }) %>
             </div>
           </td>
