@@ -1,13 +1,15 @@
-  <div class="m-5">
+<div class="background">
+  <div class="ms-5 me-5">
+    <br><br>
     <h1 class="text-center">Alimentos</h1>
-    <br>
+    <br><br>
     <div class="horizontal-group">
       <form>
         <input type="hidden" name="column" value="name" >
-        <input name="value" type="text" placeholder="Pesquisar por nome do alimento" size="50">
-        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        <input name="value" type="text" placeholder="Pesquisar por nome do alimento" size="50" class="form-control border border-dark">
       </form>
-      <button>
+      <button class="btn btn-login ms-2 me-2"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button class="btn btn-login">
         <a href="/foods/create" class="text-reset text-decoration-none">Adicionar novo alimento</a>
       </button>
     </div>
@@ -18,7 +20,6 @@
         <tr>
           <th scope="col">ID</th>
       <th scope="col">ALIMENTO</th>
-      <th scope="col">QUANTIDADE</th>
       <th scope="col">OPERAÇÃO</th>
         </tr>
       </thead>
@@ -27,16 +28,16 @@
         <tr>
           <td scope="row"><%= resource.id %></td>
       <td><%= resource.name %></td>
-      <td><%= resource.amount %></td>
           <td>
-            <button class="btn"><a href="/foods/<%= resource.id %>/edit"><i class="fa-solid fa-eye"></i></a></button>
+            <button class="btn"><a href="/foods/<%= resource.id %>/edit"><i class="fa-solid fa-eye icon"></i></a></button>
             <%- include('../../partials/formIcon', {
               to: `/foods/${resource.id}/delete`,
-              icon: 'fa fa-trash',
+              icon: 'fa fa-trash icon-trash',
             }) %>
           </td>
         </tr>
       <% } %>
       </tbody>
     </table>
+  </div>
   </div>
