@@ -10,14 +10,14 @@
       <label for="floatingInput">Email de Login</label>
       <p><%= formErrors?.login%></p>
     </div>
-    <div class="form-floating ms-4 me-4">
+    <div class="form-floating mb-4 ms-4 me-4">
       <input type="password" class="form-control border border-dark" name="password" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Senha</label>
       <p><%= formErrors?.password%></p>
     </div>
     <div>
       <button type="submit" class="btn btn-login">Login</button>
-      <a href = "/users/create"><button type="button" class="btn btn-login">Cadastrar</button></a>
+      <a class="a-login" href = "/users/create"><button type="button" class="btn btn-login">Cadastrar</button></a>
 
     </div>
     <div>
