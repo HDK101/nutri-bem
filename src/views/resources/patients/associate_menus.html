@@ -1,0 +1,29 @@
+<h1>Menus atuais</h1>
+<table class="table table-bordered border-dark table-hover text-center table-light align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NOME</th>
+        <th scope="col">HORA</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (const menu of data.menus) { %>
+        <tr>
+          <td scope="row">
+            <%= menu.id %>
+          </td>
+          <td>
+            <%= menu.name %>
+          </td>
+          <td>
+            <%= menu.time %>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+</table>
+<form method="post">
+    <input type="submit" value="Deletar">
+</form>
+

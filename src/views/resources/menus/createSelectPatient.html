@@ -1,12 +1,28 @@
-<h1>Selecione um paciente</h1>
-<% for (const patient of data.patients) { %>
-    <p>
-        <%= patient.id %>
-        <%= patient.name %>
-    </p>
-    <button>
-      <a href="/menus/create?patient=<%= patient.id %>">Selecionar</a>
-    </button>
-    <br>
-<% } %>
+<div class="container">
+  <h3>Selecione um paciente</h3>
+  <table class="table table-bordered border-dark table-hover text-center table-light align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">PACIENTE</th>
+        <th scope="col">OPERAÇÃO</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (const patient of data.patients) { %>
+        <tr>
+          <td scope="row">
+            <%= patient.id %>
+          </td>
+          <td>
+            <%= patient.name %>
+          </td>
+          <td>
+            <button class="btn"><a href="/menus/create?patient=<%= patient.id %>"><i class="fa-solid fa-eye icon"></i>Selecionar</a></button>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
 

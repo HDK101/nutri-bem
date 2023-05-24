@@ -7,6 +7,7 @@ import PatientController from '@/app/controllers/PatientController';
 import RestrictionController from '@/app/controllers/RestrictionController';
 import createPatient from '@/app/schemas/createPatient';
 import PatientRestrictionController from '@/app/controllers/PatientRestrictionController';
+import PatientMenusController from '@/app/controllers/PatientMenusController';
 import createFood from '@/app/schemas/createFood';
 import createRestriction from '@/app/schemas/createRestriction';
 import FoodRestrictionController from '@/app/controllers/FoodRestrictionController';
@@ -71,6 +72,8 @@ router.post('/foods/:foodId/restrictions/:restrictionId/delete', FoodRestriction
 router.get('/patients/:patientId/restrictions', PatientRestrictionController.index);
 router.post('/patients/:patientId/restrictions/:restrictionId', PatientRestrictionController.store);
 router.post('/patients/:patientId/restrictions/:restrictionId/delete', PatientRestrictionController.destroy);
+router.post('/patients/:patientId/menus/:menuId/delete', PatientMenusController.destroy);
+router.get('/patients/:patientId/menus', PatientMenusController.index);
 
 router.use('/menus', menuRouter.routes());
 router.get('/menus/patients', MenuController.patients);
