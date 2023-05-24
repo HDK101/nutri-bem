@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import Koa from 'koa';
 import session from 'koa-session';
 import koaBody from 'koa-body';

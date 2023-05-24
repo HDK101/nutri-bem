@@ -14,6 +14,29 @@
     margin: auto;
 }
 
+.container-width-height-create {
+    width: 62%;
+    height: 45%;
+    padding: 7px;
+    position: absolute;
+    top: 77px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.h-2 {
+    height: 35px;
+}
+
+.flex {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .border-radius {
     border-radius: 10px;
 }
@@ -59,5 +82,9 @@
 
 .icon-trash:hover{
     color: red;;
+}
+
+.btn-a {
+    margin-right: 6px;
 }
 
