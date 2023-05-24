@@ -1,29 +1,44 @@
+<div class="background">
+  <div class="ms-5 me-5">
+    <br>
+    <br>
+    <h1 class="text-center">Restrições</h1>
+    <br>
+    <br>
     <div class="horizontal-group">
       <form>
         <input type="hidden" name="column" value="name" >
-        <input name="value" type="text" placeholder="Pesquisar por nome da restrição" size="50">
-        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        <input name="value" type="text" placeholder="Pesquisar por nome da restrição" size="50" class="form-control border border-dark">
       </form>
+      <button class="btn btn-login ms-2 me-2"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button class="btn btn-login ">
+        <a href="/restrictions/create" class="text-reset text-decoration-none "><i class="fa-solid fa-plus"></i>  Adicionar nova restrição</a>
+      </button>
     </div>
-
-    <table class="table table-bordered border-dark table-hover">
-        <tr>
+    <br><br>
+    <table class="table table-bordered border-dark table-hover text-center table-light align-middle">
+      <thead class="table-dark">
+      <tr>
           <th scope="col">RESTRIÇÃO</th>
           <th scope="col">OPERAÇÃO</th>
         </tr>
+      </thead>  
+      <tbody>
     <% for (const resource of data.resources) { %>
         <tr>
           <td scope="row"><%= resource.name %></td>
           <td>
+            <button class="btn"><a href="/restrictions/<%= resource.id %>/edit"><i
+              class="fa-solid fa-eye icon"></i></a></button>
             <%- include('../../partials/formIcon', {
               to: `/restrictions/${resource.id}/delete`,
-              icon: 'fa fa-trash',
+              icon: 'fa fa-trash icon-trash',
             }) %>
           </td>
-          <a href="/restrictions/<%= resource.id %>/edit">Atualizar</a>
         </tr>
     <% } %>
+  </tbody>
       </table>
     <br>
-    <a href="/restrictions/create">Cadastrar</a>
-    <%= formErrors?.name %>
+  </div>
+</div>
