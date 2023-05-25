@@ -94,3 +94,6 @@
     margin-right: 6px;
 }
 
+.form-search {
+  display: flex;
+}
