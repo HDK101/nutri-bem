@@ -44,8 +44,8 @@
       <div class="col-md">
         <div class="form-floating">
           <select id="sex" name="sex" class="form-control border border-dark">
-            <option <%= data.resource.sex === 'M' ? 'selected' : '' %>Masculino</option>
-            <option <%= data.resource.sex === 'F' ? 'selected' : '' %>Feminino</option>
+            <option <%= data.resource.sex === 'M' ? 'selected' : '' %>>Masculino</option>
+            <option <%= data.resource.sex === 'F' ? 'selected' : '' %>>Feminino</option>
           </select>
           <label for="sex">Sexo: </label>
           <p><%= formErrors?.sex %></p>
