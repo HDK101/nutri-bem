@@ -16,7 +16,7 @@
 
 .container-width-height-create {
     width: 62%;
-    height: 45%;
+    height: 60%;
     padding: 7px;
     position: absolute;
     top: 77px;
@@ -69,7 +69,7 @@
 }
 
 .background{
-    background-color: #fcfbf4;
+    background-color: #fdf1e3;
 }
 
 .form-control:focus{

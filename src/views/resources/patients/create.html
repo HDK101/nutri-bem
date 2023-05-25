@@ -1,66 +1,68 @@
-<div class="container bg-gray container-width-height-create border-radius align-content-center border border-dark">
-  <form action="/patients" method="post" class="form-signin form-margin text-center ">
-    <div class="flex">
+<div class="background">
+  <div class="container bg-gray container-width-height-create border-radius align-content-center border border-dark ">
+    <form action="/patients" method="post" class="form-signin form-margin text-center ">
+      <div class="flex">
+        <div>
+          <h4 class="mt-4">Novo paciente</h4>
+          <br>
+        </div>
+      </div>
+      <div class="row g-2">
+        <div class="col-md">
+          <div class="form-floating">
+            <input type="text" name="name" class="form-control border border-dark " placeholder="name@example.com">
+            <label for="name">Nome do paciente </label>
+            <p><%= formErrors?.name %></p>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="form-floating">
+            <input type="text" class="form-control border border-dark" name="document" id="document" placeholder="123.456.789-0">
+            <label for="document">CPF </label>
+            <p><%= formErrors?.document %></p>
+          </div>
+        </div>
+      </div>
+      <div class="row g-2">
+        <div class="col-md">
+          <div class="form-floating">
+            <input type="number" min="0" class="form-control border border-dark" name="height" id="document">
+            <label for="height">Altura(em centímetros) </label>
+            <p><%= formErrors?.height %></p>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="form-floating">
+            <input type="number" min="0" class="form-control border border-dark" name="weight" id="weight">
+            <label for="weight">Peso(em quilogramas) </label>
+            <p><%= formErrors?.weight %></p>
+          </div>
+        </div>
+      </div>
+      <div class="row g-2">
+        <div class="col-md">
+          <div class="form-floating">
+            <select id="sex" name="sex" class="form-control border border-dark">
+              <option value="F">Selecione</option>
+              <option value="M">Masculino</option>
+              <option value="F">Feminino</option>
+            </select>
+            <label for="sex">Sexo </label>
+            <p><%= formErrors?.sex %></p>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="form-floating">
+            <input type="text" class="form-control border border-dark" name="historic" id="historic">
+            <label for="historic">Histórico </label>
+            <p><%= formErrors?.weight %></p>
+          </div>
+        </div>
+      </div>
+      <br>
       <div>
-        <h4 class="mt-4">Paciente</h4>
+        <button type="submit" class="btn btn-login ms-2 me-2">Registrar</button>
       </div>
-      <div class="h-2">
-        <img src="/public/img/carrot.png" width="45" alt="three carrots logo" class="d-inline-block align-middle">
-      </div>
-    </div>
-    <div class="row g-2">
-      <div class="col-md">
-        <div class="form-floating">
-          <input type="text" name="name" class="form-control border border-dark" placeholder="name@example.com">
-          <label for="name">Nome do paciente: </label>
-          <p><%= formErrors?.name %></p>
-        </div>
-      </div>
-      <div class="col-md">
-        <div class="form-floating">
-          <input type="text" class="form-control border border-dark" name="document" id="document" placeholder="123.456.789-0">
-          <label for="document">CPF: </label>
-          <p><%= formErrors?.document %></p>
-        </div>
-      </div>
-    </div>
-    <div class="row g-2">
-      <div class="col-md">
-        <div class="form-floating">
-          <input type="number" min="0" class="form-control border border-dark" name="height" id="document">
-          <label for="height">Altura(em centímetros): </label>
-          <p><%= formErrors?.height %></p>
-        </div>
-      </div>
-      <div class="col-md">
-        <div class="form-floating">
-          <input type="number" min="0" class="form-control border border-dark" name="weight" id="weight">
-          <label for="weight">Peso(em quilogramas): </label>
-          <p><%= formErrors?.weight %></p>
-        </div>
-      </div>
-    </div>
-    <div class="row g-2">
-      <div class="col-md">
-        <div class="form-floating">
-          <select id="sex" name="sex" class="form-control border border-dark">
-            <option value="M">Masculino</option>
-            <option value="F">Feminino</option>
-          </select>
-          <label for="sex">Sexo: </label>
-          <p><%= formErrors?.sex %></p>
-        </div>
-      </div>
-      <div class="col-md">
-        <div class="form-floating">
-          <input type="text" class="form-control border border-dark" name="historic" id="historic">
-          <label for="historic">Histórico: </label>
-          <p><%= formErrors?.weight %></p>
-        </div>
-      </div>
-    </div>
-    <div>
-      <button type="submit" class="btn btn-login ms-2 me-2">Registrar</button>
-    </div>
-  </form>
-</div> <!-- /container -->
+    </form>
+  </div> <!-- /container -->
+</div>
