@@ -29,7 +29,7 @@
           <td>
             <button class="btn"><a href="/foods/<%= resource.id %>/edit"><i class="fa-solid fa-eye icon"></i></a></button>
             <button class="btn">
-              <a href="/foods/<%= resource.id %>/restrictions"><i class="fa-solid fa-triangle-exclamation" style="color: #000000;"></i></a>
+              <a href="/foods/<%= resource.id %>/restrictions"><i class="fa fa-ban icon"></i></a>
             </button>
             <%- include('../../partials/formIcon', {
               to: `/foods/${resource.id}/delete`,
