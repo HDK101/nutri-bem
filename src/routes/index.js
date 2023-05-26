@@ -17,6 +17,7 @@ import MenuFoodController from '@/app/controllers/MenuFoodController';
 import createUser from '@/app/schemas/createUser';
 import MenuPatientController from '@/app/controllers/MenuPatientController';
 import authorize from '@/app/middlewares/authorize';
+import createMenu from '@/app/schemas/createMenu';
 
 const router = new Router();
 
@@ -38,6 +39,10 @@ const patientRouter = CRUDRouter(PatientController, {
 
 const menuRouter = CRUDRouter(MenuController, {
   resource: 'menus',
+  schemas: {
+    create: createMenu,
+    update: createMenu,
+  },
 });
 
 const foodRouter = CRUDRouter(FoodController, {

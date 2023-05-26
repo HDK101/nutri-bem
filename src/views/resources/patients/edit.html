@@ -1,5 +1,5 @@
   <div class="container bg-gray container-width-height-create border-radius align-content-center border border-dark ">
-    <form action="/patients" method="post" class="form-signin form-margin text-center ">
+    <form action="/patients/<%= data.resource.id %>/update" method="post" class="form-signin form-margin text-center ">
       <div class="flex">
         <div>
           <h4 class="mt-4">Novo paciente</h4>
@@ -73,7 +73,7 @@
       </div>
       <br>
       <div>
-        <button type="submit" class="btn btn-login ms-2 me-2">Registrar</button>
+        <button type="submit" class="btn btn-login ms-2 me-2">Salvar</button>
       </div>
     </form>
   </div> <!-- /container -->

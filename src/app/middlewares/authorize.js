@@ -7,6 +7,7 @@ export default async function authorize(ctx, next) {
 
   if (typeof id === 'undefined' || !user) {
     ctx.redirect('/login');
+    ctx.session = {};
     return;
   }
 
