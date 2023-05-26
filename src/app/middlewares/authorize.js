@@ -6,9 +6,8 @@ export default async function authorize(ctx, next) {
   const user = await User.findByPk(id);
 
   if (typeof id === 'undefined' || !user) {
-    return ctx.view('unauthorized', {
-      hideHeader: true,
-    });
+    ctx.redirect('/login');
+    return;
   }
 
   await next();

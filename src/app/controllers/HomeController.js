@@ -2,10 +2,22 @@ import User from '../models/User';
 
 class HomeController {
   static async index(ctx) {
-    return ctx.view('home');
+    if (ctx.session.id) {
+      return ctx.redirect('/home');
+    }
+
+    return ctx.redirect('/login');
+  }
+
+  static async home(ctx) {
+    return ctx.redirect('/patients');
   }
 
   static async login(ctx) {
+    if (ctx.session.id) {
+      return ctx.redirect('/home');
+    }
+
     return ctx.view('login', {
       hideHeader: true,
     });
@@ -25,7 +37,7 @@ class HomeController {
       };
       ctx.redirect('/home');
     } else {
-      ctx.redirect('/');
+      ctx.redirect('/login');
     }
   }
 
