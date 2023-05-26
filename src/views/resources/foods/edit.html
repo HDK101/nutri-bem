@@ -1,12 +1,10 @@
-<form action="/foods/<%= data.resource.name %>/update" method="post">
-    <label for="food">Alimento: </label>
-    <input id="food" name="food" value="<%= data.resource.name %>"/>
-    <label for="food">Quantidade: </label>
-    <input id="amount" name="amount" value="<%= data.resource.amount %>"/>
-    <input type="submit" value="Atualizar"/>
-</form>
-<a href="/foods/<%= data.resource.id %>/restrictions">Ver restrições</a>
-
-<form action="/foods/<%= data.resource.name %>/delete" method="post">
-    <input type="submit" value="Deletar"/>
-</form>
+<div class="container bg-gray container-width-height-create--tiny border-radius align-content-center border border-dark ">
+  <form action="/foods" method="post" class="form-signin form-margin text-center">
+      <%- include('../../partials/form/text', {
+         name: 'name',
+         label: 'Nome',
+         value: data.resource.name,
+      }) %>
+      <button type="submit" class="btn btn-login ms-2 me-2">Registrar</button>
+  </form>
+</div>

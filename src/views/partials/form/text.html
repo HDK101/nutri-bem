@@ -1,3 +1,10 @@
-<input type="text" id="<%= name %>" name="<%= name %>" class="form-control border border-dark " placeholder="<%= typeof placeholder === 'undefined' ? '' : placeholder %>">
+<input 
+  value="<%= typeof value !== 'undefined' ? value : '' %>"
+  type="text" 
+  id="<%= name %>" 
+  name="<%= name %>" 
+  class="form-control border border-dark " 
+  placeholder="<%= typeof placeholder === 'undefined' ? '' : placeholder %>"
+>
 <label for="<%= name %>"><%= label %></label>
 <p><%= formErrors?.[name] %></p>

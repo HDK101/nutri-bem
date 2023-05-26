@@ -1,72 +1,80 @@
-<div class="container bg-gray container-width-height-create border-radius align-content-center border border-dark">
-  <form action="/patients/<%= data.resource.id %>/update" method="post" class="form-signin form-margin text-center ">
-    <div class="flex">
+  <div class="container bg-gray container-width-height-create border-radius align-content-center border border-dark ">
+    <form action="/patients" method="post" class="form-signin form-margin text-center ">
+      <div class="flex">
+        <div>
+          <h4 class="mt-4">Novo paciente</h4>
+          <br>
+        </div>
+      </div>
+      <div class="row g-2">
+        <div class="col-md">
+          <div class="form-floating">
+            <%- include('../../partials/form/text', {
+               name: 'name',
+               label: 'Nome do paciente',
+               value: data.resource.name,
+            }) %>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="form-floating">
+            <%- include('../../partials/form/text', {
+               name: 'document',
+               label: 'CPF',
+               placeholder: '123.456.789-00',
+               value: data.resource.document,
+            }) %>
+          </div>
+        </div>
+      </div>
+      <div class="row g-2">
+        <div class="col-md">
+          <div class="form-floating">
+            <%- include('../../partials/form/number', {
+               name: 'height',
+               label: 'Altura(em centímetros)',
+               min: 0,
+               value: data.resource.height,
+            }) %>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="form-floating">
+            <%- include('../../partials/form/number', {
+               name: 'weight',
+               label: 'Peso(em quilogramas)',
+               min: 0,
+               value: data.resource.weight,
+            }) %>
+          </div>
+        </div>
+      </div>
+      <div class="row g-2">
+        <div class="col-md">
+          <div class="form-floating">
+            <select id="sex" name="sex" class="form-control border border-dark">
+              <option disabled selected value>Selecione</option>
+              <option <%= data.resource.sex === 'M' ? 'selected' : '' %> value="M">Masculino</option>
+              <option <%= data.resource.sex === 'F' ? 'selected' : '' %> value="F">Feminino</option>
+            </select>
+            <label for="sex">Sexo </label>
+            <p><%= formErrors?.sex %></p>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="form-floating">
+            <%- include('../../partials/form/text', {
+               name: 'historic',
+               label: 'Histórico',
+               value: data.resource.historic,
+            }) %>
+          </div>
+        </div>
+      </div>
+      <br>
       <div>
-        <h4 class="mt-4">Paciente</h4>
+        <button type="submit" class="btn btn-login ms-2 me-2">Registrar</button>
       </div>
-      <div class="h-2">
-        <img src="/public/img/carrot.png" width="45" alt="three carrots logo" class="d-inline-block align-middle">
-      </div>
-    </div>
-    <div class="row g-2">
-      <div class="col-md">
-        <div class="form-floating">
-          <input type="text" name="name" value="<%= data.resource.name %>"  class="form-control border border-dark" placeholder="name@example.com">
-          <label for="name">Nome do paciente: </label>
-          <p><%= formErrors?.name %></p>
-        </div>
-      </div>
-      <div class="col-md">
-        <div class="form-floating">
-          <input type="text" value="<%= data.resource.document %>" class="form-control border border-dark" name="document" id="document" placeholder="123.456.789-0">
-          <label for="document">CPF: </label>
-          <p><%= formErrors?.document %></p>
-        </div>
-      </div>
-    </div>
-    <div class="row g-2">
-      <div class="col-md">
-        <div class="form-floating">
-          <input type="number" value="<%= data.resource.height %>" min="0" class="form-control border border-dark" name="height" id="document">
-          <label for="height">Altura(em centímetros): </label>
-          <p><%= formErrors?.height %></p>
-        </div>
-      </div>
-      <div class="col-md">
-        <div class="form-floating">
-          <input type="number" value="<%= data.resource.weight %>" min="0" class="form-control border border-dark" name="weight" id="weight">
-          <label for="weight">Peso(em quilogramas): </label>
-          <p><%= formErrors?.weight %></p>
-        </div>
-      </div>
-    </div>
-    <div class="row g-2">
-      <div class="col-md">
-        <div class="form-floating">
-          <select id="sex" name="sex" class="form-control border border-dark">
-            <option <%= data.resource.sex === 'M' ? 'selected' : '' %>>Masculino</option>
-            <option <%= data.resource.sex === 'F' ? 'selected' : '' %>>Feminino</option>
-          </select>
-          <label for="sex">Sexo: </label>
-          <p><%= formErrors?.sex %></p>
-        </div>
-      </div>
-      <div class="col-md">
-        <div class="form-floating">
-          <input type="text" value="<%= data.resource.historic %>" class="form-control border border-dark" name="historic" id="historic">
-          <label for="historic">Histórico: </label>
-          <p><%= formErrors?.weight %></p>
-        </div>
-      </div>
-    </div>
-    <div>
-      <button type="submit" class="btn btn-login ms-2 me-2">Atualizar</button>
-      <button class="btn btn-login btn-a">
-        <a href="/patients/<%= data.resource.id %>/restrictions" class="text-reset text-decoration-none "><i class="fa-solid fa-plus"></i>Ver Restrições</a>
-      </button>
-      <button class="btn btn-login ">
-        <a action="/patients/<%= data.resource.id %>/delete" class="text-reset text-decoration-none "><i class="fa-solid fa-plus"></i>Deletar</a>
-      </button>
-    </div>
-  </form>
-</div> <!-- /container -->
+    </form>
+  </div> <!-- /container -->
+
