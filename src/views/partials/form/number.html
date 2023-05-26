@@ -1,0 +1,10 @@
+<input 
+  min="<%= typeof min === 'number' ? min : '' %>"
+  type="number" 
+  id="<%= name %>" 
+  name="<%= name %>" 
+  class="form-control border border-dark" 
+  placeholder="<%= typeof placeholder === 'number' ? placeholder : '' %>"
+>
+<label for="<%= name %>"><%= label %></label>
+<p><%= formErrors?.[name] %></p>
