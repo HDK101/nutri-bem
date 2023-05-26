@@ -59,7 +59,7 @@
               <button class="btn"><a href="/patients/<%= resource.id %>/edit"><i
                     class="fa-solid fa-eye icon"></i></a></button>
               <button class="btn"><a href="/patients/<%= resource.id %>/menus"><i class="fa fa-utensils icon"></i></a></button>
-              <button class="btn"><a href="/patients/<%= resource.id %>/restrictions"></a><i class="fa fa-ban icon"></i></button>
+              <button class="btn"><a href="/patients/<%= resource.id %>/restrictions"><i class="fa fa-ban icon"></i></a></button>
               <%- include('../../partials/formIcon', {
                 to: `/patients/${resource.id}/delete`,
                 icon: 'fa fa-trash icon icon-trash',
