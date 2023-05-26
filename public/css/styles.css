@@ -33,8 +33,11 @@
 }
 
 .container-width-height-create--medium {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 500px;
-    height: 260px;
+    height: 300px;
     padding: 6px;
     position: absolute;
     top: 77px;
@@ -45,8 +48,11 @@
 }
 
 .container-width-height-create--tiny {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 350px;
-    height: 130px;
+    height: 150px;
     padding: 6px;
     position: absolute;
     top: 77px;
@@ -120,4 +126,8 @@
 
 .form-search {
   display: flex;
+}
+
+.logo-text {
+  font-weight: 700;
 }
