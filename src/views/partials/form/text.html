@@ -1,6 +1,6 @@
 <input 
   value="<%= typeof value !== 'undefined' ? value : '' %>"
-  type="text" 
+  type="<%= typeof type !== 'undefined' ? type : 'text' %>" 
   id="<%= name %>" 
   name="<%= name %>" 
   class="form-control border border-dark " 

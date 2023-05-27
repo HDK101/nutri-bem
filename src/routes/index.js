@@ -18,6 +18,8 @@ import createUser from '@/app/schemas/createUser';
 import MenuPatientController from '@/app/controllers/MenuPatientController';
 import authorize from '@/app/middlewares/authorize';
 import createMenu from '@/app/schemas/createMenu';
+import RegisterController from '@/app/controllers/RegisterController';
+import validateForm, { rawValidateForm } from '@/crud/validateForm';
 
 const router = new Router();
 
@@ -65,9 +67,14 @@ router.get('/', HomeController.index);
 router.get('/login', HomeController.login);
 router.post('/session', HomeController.session);
 
-router.use('/users', userRouter);
+// router.use('/users', userRouter);
+
+router.get('/register', RegisterController.create);
+router.post('/register', rawValidateForm(createUser, { redirectTo: '/register' }), RegisterController.store);
 
 router.use(authorize);
+router.get('/my-account', RegisterController.edit);
+router.post('/my-account', rawValidateForm(createUser, { redirectTo: '/my-account' }), RegisterController.update);
 router.get('/home', HomeController.home);
 router.post('/logout', HomeController.logout);
 router.use('/patients', patientRouter.routes());

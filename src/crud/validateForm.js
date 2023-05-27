@@ -1,6 +1,49 @@
 import { UniqueConstraintError, ValidationError as SequelizeValidationError } from "sequelize";
 import { ValidationError as YupValidationError } from "yup";
 
+export function rawValidateForm(schema, options = {}) {
+  const {
+    redirectTo,
+  } = options;
+
+  return async (ctx, next) => {
+    try {
+      await schema.validate(ctx.request.body, {
+        abortEarly: false,
+      });
+      await next();
+    } catch (err) {
+      const errorsMap = {};
+
+      console.log(err);
+
+      if (err instanceof YupValidationError) {
+        err.inner.forEach((error) => {
+          errorsMap[error.path] = error.message;
+        });
+
+        ctx.session.formErrors = errorsMap;
+        ctx.redirect(redirectTo);
+      } else if (err instanceof UniqueConstraintError) {
+        err.errors.forEach((error) => {
+          errorsMap[error.path] = "Já está sendo utilizado";
+        });
+        ctx.session.formErrors = errorsMap;
+        ctx.redirect(redirectTo);
+      } else if (err instanceof SequelizeValidationError) {
+        err.errors.forEach((error) => {
+          errorsMap[error.path] = error.message;
+        });
+
+        ctx.session.formErrors = errorsMap;
+        ctx.redirect(redirectTo);
+      } else {
+        await next();
+      }
+    }
+  };
+}
+
 export default function validateForm(schema, options = {}) {
   const {
     type,

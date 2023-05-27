@@ -5,6 +5,9 @@
     <div>
       <h4 class="mt-4">NutriBem</h4>
       <img src="/public/img/carrot.png" width="45" alt="three carrots logo" class="d-inline-block align-middle">
+      <% if (data.created) { %>
+      <h3>Usuário criado!</h3>
+      <% } %>
     </div>
     <div class="form-floating mb-3 ms-4 me-4 mt-4">
       <input type="text" name="login" class="form-control border border-dark" id="floatingInput" placeholder="name@example.com">
@@ -18,7 +21,7 @@
     </div>
     <div>
       <button type="submit" class="btn btn-login">Login</button>
-      <a class="a-login" href = "/users/create"><button type="button" class="btn btn-login">Cadastrar</button></a>
+      <a class="a-login" href = "/register"><button type="button" class="btn btn-login">Cadastrar</button></a>
     </div>
     <% if (data.loginError) { %>
     <p>Credênciais inválidas</p>

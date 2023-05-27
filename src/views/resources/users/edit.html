@@ -1,9 +1,47 @@
-<form action="/users/<%= data.resource.id %>/update" method="post">
-    <label for="name">Nome: </label>
-    <input id="name" name="name" value="<%= data.resource.name %>"/>
-    <input type="submit" value="Atualizar"/>
-</form>
+  <div class="container bg-gray container-width-height-create border-radius align-content-center border border-dark ">
+    <% if (data.created) {%>
+    <h3>Conta atualizada</h3>
+    <% } %>
+    <form action="/my-account" method="post" class="form-signin form-margin text-center ">
+      <div class="flex">
+        <div>
+          <h4 class="mt-4">Editar conta</h4>
+          <br>
+        </div>
+      </div>
+      <div class="row g-2">
+        <div class="col-md">
+          <div class="form-floating">
+            <%- include('../../partials/form/text', {
+               name: 'name',
+               label: 'Nome do usuário',
+               value: data.user.name,
+            }) %>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="form-floating">
+            <%- include('../../partials/form/text', {
+               name: 'login',
+               label: 'Login',
+               value: data.user.login,
+            }) %>
+          </div>
+        </div>
+      </div>
+      <div class="row g-2">
+        <div class="col-md">
+          <div class="form-floating">
+            <%- include('../../partials/form/text', {
+               name: 'password',
+               label: 'Senha',
+               type: 'password',
+            }) %>
+          </div>
+        </div>
+      <div>
+        <button type="submit" class="btn btn-login ms-2 me-2">Salvar</button>
+      </div>
+    </form>
+  </div> <!-- /container -->
 
-<form action="/users/<%= data.resource.id %>/delete" method="post">
-    <input type="submit" value="Deletar"/>
-</form>

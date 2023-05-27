@@ -20,6 +20,7 @@ class HomeController {
 
     return ctx.view('login', {
       hideHeader: true,
+      created: typeof ctx.query.created !== 'undefined',
       loginError: typeof ctx.query.error !== 'undefined',
     });
   }
