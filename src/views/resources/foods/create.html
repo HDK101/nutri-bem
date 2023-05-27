@@ -1,5 +1,12 @@
 <div class="container bg-gray container-width-height-create--tiny border-radius align-content-center border border-dark ">
   <form action="/foods" method="post" class="form-signin form-margin text-center">
+      <div class="flex">
+        <div>
+          <h4 class="mt-4">Novo alimento</h4>
+          <br>
+        </div>
+      </div>
+
       <%- include('../../partials/form/text', {
          name: 'name',
          label: 'Nome',

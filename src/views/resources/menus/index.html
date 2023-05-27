@@ -20,6 +20,7 @@
         <tr>
           <th scope="col">ID</th>
           <th scope="col">PACIENTE</th>
+          <th scope="col">OBSERVAÇÕES</th>
           <th scope="col">HORÁRIO</th>
           <th scope="col">OPERAÇÃO</th>
         </tr>
@@ -32,6 +33,9 @@
           </td>
           <td>
             <%= resource.name %>
+          </td>
+          <td>
+            <%= resource.notes %>
           </td>
           <td>
             <%= resource.time %>

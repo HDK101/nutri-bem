@@ -1,0 +1,8 @@
+<textarea
+  id="<%= name %>" 
+  name="<%= name %>" 
+  class="form-control border border-dark " 
+  placeholder="<%= typeof placeholder === 'undefined' ? '' : placeholder %>"
+  ><%= typeof value !== 'undefined' ? value : '' %></textarea>
+<label for="<%= name %>"><%= label %></label>
+<p><%= formErrors?.[name] %></p>
