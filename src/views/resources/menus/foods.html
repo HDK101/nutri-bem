@@ -1,23 +1,47 @@
 <h1>Alimentos atuais</h1>
-<% for (const food of data.currentFoods) { %>
-    <p>
-        <%= food.id %>
-        <%= food.name %>
-        <%= food.amount %>
-    </p>
-    <form action="/menus/<%= data.menu.id %>/foods/<%= food.id %>/delete" method="post">
-      <input type="submit" value="Delete">
-    </form>
-    <br>
-<% } %>
+
+<table class="table table-bordered border-dark table-hover text-center table-light align-middle">
+  <thead class="table-dark">
+    <tr>
+  <th scope="col">ALIMENTO</th>
+  <th scope="col">QUANTIDADE</th>
+  <th scope="col">OPERAÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% for (const food of data.currentFoods) { %>
+    <tr>
+      <td><%= food.name %></td>
+      <td><%= food.amount %></td>
+      <td>
+        <%- include('../../partials/formIcon', {
+          to: `/menus/${data.menu.id}/foods/${food.id}/delete`,
+          icon: 'fa fa-trash icon-trash',
+        }) %>
+      </td>
+    </tr>
+  <% } %>
+  </tbody>
+</table>
+
 <h1>Selecione os alimentos</h1>
-<% for (const food of data.foods) { %>
-    <p>
-        <%= food.id %>
-        <%= food.name %>
-    </p>
-    <form action="/menus/<%= data.menu.id %>/foods/<%= food.id %>/amount" method="get">
-      <input type="submit" value="Selecionar">
-    </form>
-    <br>
-<% } %>
+
+<table class="table table-bordered border-dark table-hover text-center table-light align-middle">
+  <thead class="table-dark">
+    <tr>
+  <th scope="col">ALIMENTO</th>
+  <th scope="col">OPERAÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% for (const food of data.foods) { %>
+    <tr>
+      <td><%= food.name %></td>
+      <td>
+        <button class="btn"><a href="/menus/<%= data.menu.id %>/foods/<%= food.id %>/amount">Selecionar</a></button>
+      </td>
+    </tr>
+  <% } %>
+  </tbody>
+</table>
+

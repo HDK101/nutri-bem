@@ -1,22 +1,47 @@
-<h1>Current restrictions</h1>
-<% for (const restriction of data.currentRestrictions) { %>
-    <p>
-        <%= restriction.id %>
-        <%= restriction.name %>
-    </p>
-    <form action="/foods/<%= data.food.id %>/restrictions/<%= restriction.id %>/delete" method="post">
-      <input type="submit" value="Delete">
-    </form>
-    <br>
-<% } %>
+<h1>Restrições atribuídas</h1>
+
+<table class="table table-bordered border-dark table-hover text-center table-light align-middle">
+  <thead class="table-dark">
+    <tr>
+  <th scope="col">RESTRIÇÃO</th>
+  <th scope="col">OPERAÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% for (const restriction of data.currentRestrictions) { %>
+    <tr>
+      <td><%= restriction.name %></td>
+      <td>
+        <%- include('../../partials/formIcon', {
+          to: `/foods/${data.food.id}/restrictions/${restriction.id}/delete`,
+          icon: 'fa fa-trash icon-trash',
+        }) %>
+      </td>
+    </tr>
+  <% } %>
+  </tbody>
+</table>
+
 <h1>Selecione as restrições</h1>
-<% for (const restriction of data.restrictions) { %>
-    <p>
-        <%= restriction.id %>
-        <%= restriction.name %>
-    </p>
-    <form action="/foods/<%= data.food.id %>/restrictions/<%= restriction.id %>" method="post">
-      <input type="submit" value="Selecione">
-    </form>
-    <br>
-<% } %>
+
+<table class="table table-bordered border-dark table-hover text-center table-light align-middle">
+  <thead class="table-dark">
+    <tr>
+  <th scope="col">RESTRIÇÃO</th>
+  <th scope="col">OPERAÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% for (const restriction of data.restrictions) { %>
+    <tr>
+      <td><%= restriction.name %></td>
+      <td>
+        <form action="/foods/<%= data.food.id %>/restrictions/<%= restriction.id %>" method="post">
+          <input type="submit" value="Selecione">
+        </form>
+      </td>
+    </tr>
+  <% } %>
+  </tbody>
+</table>
+

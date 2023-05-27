@@ -38,6 +38,7 @@
           </td>
           <td>
             <button class="btn"><a href="/menus/<%= resource.id %>/edit"><i class="fa-solid fa-eye icon"></i></a></button>
+            <button class="btn"><a href="/menus/<%= resource.id %>/foods"><i class="fa-solid fa-burger icon"></i></a></button>
             <%- include('../../partials/formIcon', {
               to: `/menus/${resource.id}/delete`,
               icon: 'fa fa-trash icon-trash',
