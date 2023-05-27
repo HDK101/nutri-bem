@@ -3,6 +3,7 @@ import connection from '@/database/connection';
 import MenuFood from './MenuFood';
 import MenuPatient from './MenuPatient';
 import Patient from './Patient';
+import Food from './Food';
 
 const Menu = connection.define('Menu', {
   id: {
@@ -29,8 +30,6 @@ const Menu = connection.define('Menu', {
 });
 
 Menu.associate = (models) => {
-  const { Food } = models;
-
   Menu.belongsToMany(Food, {
     through: MenuFood,
     foreignKey: 'menu_id',
@@ -38,8 +37,8 @@ Menu.associate = (models) => {
 
   Menu.belongsToMany(Patient, {
     through: MenuPatient,
-    foreignKey: 'menu_id',
     as: 'patient',
+    foreignKey: 'menu_id',
   });
 };
 

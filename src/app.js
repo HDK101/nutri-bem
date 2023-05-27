@@ -17,7 +17,7 @@ async function start() {
   dotenv.config();
 
   await association();
-  await sync();
+  // await sync();
 
   const app = new Koa();
   koaEjs(app, {

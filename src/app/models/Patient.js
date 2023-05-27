@@ -55,10 +55,6 @@ Patient.associate = (models) => {
     through: MenuPatient,
     foreignKey: 'patient_id',
   });
-
-  Patient.hasMany(Menu, {
-    foreignKey: 'menu_id',
-  });
 };
 
 export default Patient;
