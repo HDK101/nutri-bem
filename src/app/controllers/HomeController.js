@@ -20,6 +20,7 @@ class HomeController {
 
     return ctx.view('login', {
       hideHeader: true,
+      loginError: typeof ctx.query.error !== 'undefined',
     });
   }
 
@@ -37,7 +38,7 @@ class HomeController {
       };
       ctx.redirect('/home');
     } else {
-      ctx.redirect('/login');
+      ctx.redirect('/login?error=true');
     }
   }
 

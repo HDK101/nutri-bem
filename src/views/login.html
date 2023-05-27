@@ -19,10 +19,11 @@
     <div>
       <button type="submit" class="btn btn-login">Login</button>
       <a class="a-login" href = "/users/create"><button type="button" class="btn btn-login">Cadastrar</button></a>
-
     </div>
+    <% if (data.loginError) { %>
+    <p>Credênciais inválidas</p>
+    <% } %>
     <div>
-      
     </div>
   </form>
 
