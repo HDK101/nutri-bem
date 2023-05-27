@@ -131,3 +131,12 @@
 .logo-text {
   font-weight: 700;
 }
+
+.login-background {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("/public/img/vegetables1.jpg");
+  background-repeat: repeat;
+  background-blend-mode: color;
+  background-color: #ffffff8f;
+}
