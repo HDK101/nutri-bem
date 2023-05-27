@@ -16,12 +16,16 @@ const MenuFoodController = {
 
     const patient = menu.patient?.[0];
     const restrictions = await patient.getRestrictions();
-    const restrictionIds = restrictions.map(restriction => restriction.id).join(',');
+    const restrictionIds = restrictions.map(restriction => restriction.id);
     const currentFoods = menu.Food.map((r) => ({ id: r.id, name: r.name, amount: r.MenuFood.amount }));
-    const foodIds = currentFoods.map(food => food.id).join(',');
+    const foodIds = currentFoods.map(food => food.id);
     console.log(foodIds);
 
-    const toSelectFoods = await connection.query('SELECT f.id as id, f.name as name, f.createdAt as createdAt, f.updatedAt as updatedAt FROM Food f FULL JOIN FoodRestrictions fr ON f.id = fr.food_id WHERE fr.restriction_id IS NULL OR fr.restriction_id NOT IN (:restrictionIds) AND f.id NOT IN(:foodIds)', {
+    const currentQuery = restrictionIds.length > 0 ?
+      'SELECT f.id as id, f.name as name, f.createdAt as createdAt, f.updatedAt as updatedAt FROM Food f FULL JOIN FoodRestrictions fr ON f.id = fr.food_id WHERE (fr.restriction_id NOT IN (:restrictionIds) OR fr.restriction_id IS NULL) AND f.id NOT IN(:foodIds)' :
+      'SELECT f.id as id, f.name as name, f.createdAt as createdAt, f.updatedAt as updatedAt FROM Food f WHERE f.id NOT IN(:foodIds)';
+
+    const toSelectFoods = await connection.query(currentQuery, {
       replacements: {
         restrictionIds,
         foodIds,
