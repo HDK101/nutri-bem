@@ -31,6 +31,11 @@ const Patient = connection.define('Patient', {
     allowNull: false,
     primaryKey: false,
   },
+  birthdate: {
+    type: DataTypes.DATE,
+    allowNull: false,
+    primaryKey: false,
+  },
   sex: {
     type: DataTypes.CHAR(1),
     allowNull: false,
