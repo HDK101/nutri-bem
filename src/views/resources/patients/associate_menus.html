@@ -1,33 +1,32 @@
-<h1>Menus atuais</h1>
+<div class="ms-5 me-5">
+  <br>
+  <br>
+<h1 class="text-center">Menus atuais</h1>
+<br>
+<br>
 <table class="table table-bordered border-dark table-hover text-center table-light align-middle">
     <thead class="table-dark">
       <tr>
-        <th scope="col">ID</th>
         <th scope="col">NOME</th>
-        <th scope="col">OBSERVAÇÕES</th>
-        <th scope="col">HORA</th>
+        <th scope="col">OPERAÇÃO</th>
       </tr>
     </thead>
     <tbody>
       <% for (const menu of data.menus) { %>
         <tr>
           <td scope="row">
-            <%= menu.id %>
-          </td>
-          <td>
             <%= menu.name %>
           </td>
           <td>
-            <%= menu.notes %>
-          </td>
-          <td>
-            <%= menu.time %>
+            <button class="btn"><a href="/menus/<%= menu.id %>/foods/"><i
+              class="fa-solid fa-eye icon"></i></a></button>
+            <%- include('../../partials/formIcon', {
+              to: `/restrictions/${menu.id}/delete`,
+              icon: 'fa fa-trash icon-trash',
+            }) %>
           </td>
         </tr>
       <% } %>
     </tbody>
 </table>
-<form method="post">
-    <input type="submit" value="Deletar">
-</form>
-
+</div>
