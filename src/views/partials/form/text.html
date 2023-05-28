@@ -3,7 +3,7 @@
   type="<%= typeof type !== 'undefined' ? type : 'text' %>" 
   id="<%= name %>" 
   name="<%= name %>" 
-  class="form-control border border-dark " 
+  class="form-control border border-dark <%= typeof className !== 'undefined' ? className : '' %>" 
   placeholder="<%= typeof placeholder === 'undefined' ? '' : placeholder %>"
 >
 <label for="<%= name %>"><%= label %></label>
