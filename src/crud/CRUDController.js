@@ -26,8 +26,7 @@ export default function CRUDController(Model, options = {}) {
     routesOnly,
     resource,
     include,
-    order,
-    orderType,
+    order, orderType,
   } = options;
 
   if (!resource) throw new Error('"resource" must be set to a string');
@@ -80,7 +79,7 @@ export default function CRUDController(Model, options = {}) {
     });
     instance.set(ctx.request.body);
     await instance.save();
-    ctx.redirect(`/${resource}/${ctx.params.id}/edit`);
+    ctx.redirect(`/${resource}`);
   }
 
   async function destroy(ctx) {
