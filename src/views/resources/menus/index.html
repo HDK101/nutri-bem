@@ -18,27 +18,19 @@
     <table class="table table-bordered border-dark table-hover text-center table-light align-middle">
       <thead class="table-dark">
         <tr>
-          <th scope="col">ID</th>
+          <th scope="col">NOME</th>
           <th scope="col">PACIENTE</th>
-          <th scope="col">OBSERVAÇÕES</th>
-          <th scope="col">HORÁRIO</th>
           <th scope="col">OPERAÇÃO</th>
         </tr>
       </thead>
       <tbody>
         <% for (const resource of data.resources) { %>
         <tr>
-          <td scope="row">
-            <%= resource.id %>
-          </td>
           <td>
             <%= resource.name %>
           </td>
           <td>
-            <%= resource.notes %>
-          </td>
-          <td>
-            <%= resource.time %>
+            <%= resource.patient[0]?.name %>
           </td>
           <td>
             <button class="btn"><a href="/menus/<%= resource.id %>/edit"><i class="fa-solid fa-eye icon"></i></a></button>
