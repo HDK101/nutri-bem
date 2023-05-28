@@ -38,7 +38,11 @@
     <tr>
       <td><%= food.name %></td>
       <td>
-        <button class="btn"><a href="/menus/<%= data.menu.id %>/foods/<%= food.id %>/amount">Selecionar</a></button>
+        <%- include('../../partials/formIcon', {
+          to: `/menus/${data.menu.id}/foods/${food.id}/amount`,
+          method: 'get',
+          icon: 'fa fa-plus',
+        }) %>
       </td>
     </tr>
   <% } %>
