@@ -25,7 +25,7 @@ const MenuController = {
 
     await menu.addPatient(patientInstance);
 
-    ctx.redirect(`menus`);
+    ctx.redirect(`/patients/${patient}/menus`);
   },
 }
 
