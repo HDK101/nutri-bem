@@ -50,6 +50,16 @@
             }) %>
           </div>
         </div>
+        <div class="col-md">
+          <div class="form-floating">
+            <%- include('../../partials/form/number', {
+               name: 'birthdate',
+               label: 'Idade',
+               min: 0,
+               value: data.resource.birthdate,
+            }) %>
+          </div>
+        </div>
       </div>
       <div class="row g-2">
         <div class="col-md">
