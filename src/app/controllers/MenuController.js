@@ -5,6 +5,8 @@ import Patient from '../models/Patient';
 const defaultMenuController = CRUDController(Menu, {
   resource: 'menus',
   include: 'patient',
+  order: 'name',
+  orderType: 'ASC',
 });
 
 const MenuController = {

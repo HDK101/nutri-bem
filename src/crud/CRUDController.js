@@ -11,12 +11,23 @@ function createSearchQuery({ column, value }) {
   return null;
 }
 
+function createOrder(column, type) {
+  if (column && type) {
+    return [
+      [column, type],
+    ];
+  }
+  return null;
+}
+
 export default function CRUDController(Model, options = {}) {
   const {
     exclude,
     routesOnly,
     resource,
     include,
+    order,
+    orderType,
   } = options;
 
   if (!resource) throw new Error('"resource" must be set to a string');
@@ -28,6 +39,7 @@ export default function CRUDController(Model, options = {}) {
         exclude,
       },
       include,
+      order: createOrder(order, orderType),
     });
 
     return ctx.view(`resources/${resource}/index`, {
