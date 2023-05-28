@@ -2,6 +2,7 @@ import { DataTypes } from 'sequelize';
 import connection from '@/database/connection';
 import PatientRestriction from './PatientRestriction';
 import MenuPatient from './MenuPatient';
+import {differenceInYears} from 'date-fns';
 
 const Patient = connection.define('Patient', {
   id: {
@@ -35,6 +36,12 @@ const Patient = connection.define('Patient', {
     type: DataTypes.DATE,
     allowNull: false,
     primaryKey: false,
+  },
+  age: {
+    type: DataTypes.VIRTUAL,
+    get() {
+      return differenceInYears(new Date(), this.birthdate);
+    },
   },
   sex: {
     type: DataTypes.CHAR(1),
