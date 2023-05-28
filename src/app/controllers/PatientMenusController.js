@@ -10,21 +10,9 @@ const PatientMenusController = {
       include: Menu,
     });
 
-    const menusIds = patient.Menus.map((r) => r.id);
-    const menus = await Menu.findAll({
-      where: {
-        id: {
-          [Op.notIn]: menusIds,
-        },
-      },
-    });
-
-    console.log(menus);
-
     return ctx.view('resources/patients/associate_menus', {
       patient,
-      menus,
-      currentMenus: patient.Menus,
+      menus: patient.Menus,
     });
   },
 
