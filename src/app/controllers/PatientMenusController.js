@@ -6,14 +6,12 @@ import Menu from '../models/Menu';
 const PatientMenusController = {
   async index(ctx) {
     const patientId = +ctx.params.patientId;
-    const patients = await Patient.findAll();
     const patient = await Patient.findByPk(patientId, {
       include: Menu,
     });
 
     return ctx.view('resources/patients/associate_menus', {
       patient,
-      patients,
       menus: patient.Menus,
     });
   },
