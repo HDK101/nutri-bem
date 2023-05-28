@@ -14,6 +14,7 @@ module.exports = {
           model: 'Restrictions',
           key: 'id',
         },
+        onDelete: 'CASCADE',
       },
       food_Id: {
         type: Sequelize.INTEGER,
@@ -21,6 +22,7 @@ module.exports = {
           model: 'Food',
           key: 'id',
         },
+        onDelete: 'CASCADE',
       },
       createdAt: {
         type: Sequelize.DATE,

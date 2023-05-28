@@ -14,6 +14,7 @@ module.exports = {
           model: 'Restrictions',
           key: 'id',
         },
+        onDelete: 'CASCADE',
       },
       patient_id: {
         type: Sequelize.INTEGER,
@@ -21,6 +22,7 @@ module.exports = {
           model: 'Patients',
           key: 'id',
         },
+        onDelete: 'CASCADE',
       },
       createdAt: {
         type: Sequelize.DATE,
