@@ -29,6 +29,12 @@
           </div>
         </div>
       </div>
+      <%- include('../../partials/form/date', {
+         name: 'birthdate',
+         label: 'Data de nascimento',
+         placeholder: '01/01/2000',
+         value: data.resource.birthdate.toISOString().split('T')[0],
+      }) %>
       <div class="row g-2">
         <div class="col-md">
           <div class="form-floating">

@@ -14,6 +14,7 @@
   "dependencies": {
     "@koa/ejs": "^5.1.0",
     "@koa/router": "^12.0.0",
+    "date-fns": "^2.30.0",
     "dotenv": "^16.0.3",
     "koa": "^2.14.1",
     "koa-body": "^6.0.1",

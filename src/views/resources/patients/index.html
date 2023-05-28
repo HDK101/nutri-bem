@@ -22,6 +22,7 @@
       <thead class="table-dark">
         <tr>
           <th scope="col">NOME</th>
+          <th scope="col">DATA DE NASCIMENTO</th>
           <th scope="col">CPF</th>
           <th scope="col">ALTURA</th>
           <th scope="col">PESO</th>
@@ -35,6 +36,9 @@
         <tr>
           <td>
             <%= resource.name %>
+          </td>
+          <td>
+            <%= dateFns.formatBr(resource.birthdate) %>
           </td>
           <td>
             <%= resource.document %>

@@ -1,6 +1,5 @@
 /* eslint-disable linebreak-style */
-import Koa from 'koa';
-import session from 'koa-session';
+import Koa from 'koa'; import session from 'koa-session';
 import koaBody from 'koa-body';
 import koaEjs from '@koa/ejs';
 
@@ -12,6 +11,7 @@ import serve from 'koa-static';
 import mount from 'koa-mount';
 import { sync, association } from './database';
 import routes from './routes';
+import {format} from 'date-fns';
 
 async function start() {
   dotenv.config();
@@ -39,6 +39,11 @@ async function start() {
     .use(async (ctx, next) => {
       ctx.view = async (template, data) => ctx.render(template, {
         data,
+        dateFns: {
+          formatBr: (date) => {
+            return format(date, 'dd/MM/yyyy');
+          },
+        },
         session: ctx.session,
         formErrors: ctx.formErrors,
         ctx,
