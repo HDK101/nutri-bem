@@ -20,6 +20,7 @@ import authorize from '@/app/middlewares/authorize';
 import createMenu from '@/app/schemas/createMenu';
 import RegisterController from '@/app/controllers/RegisterController';
 import validateForm, { rawValidateForm } from '@/crud/validateForm';
+import InfinityController from '@/app/controllers/InfinityController';
 
 const router = new Router();
 
@@ -66,6 +67,10 @@ const restrictionRouter = CRUDRouter(RestrictionController, {
 router.get('/', HomeController.index);
 router.get('/login', HomeController.login);
 router.post('/session', HomeController.session);
+
+router.get('/infinity1', InfinityController.infinity1);
+router.get('/infinity2', InfinityController.infinity2);
+router.get('/infinity3', InfinityController.infinity3);
 
 // router.use('/users', userRouter);
 

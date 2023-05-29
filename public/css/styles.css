@@ -140,3 +140,45 @@
   background-blend-mode: color;
   background-color: #ffffff8f;
 }
+
+.infinity-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    height: 100vh;
+}
+
+.infinity-header {
+    width: 100vw;
+    height: 10vh;
+    background-color: rgb(118, 0, 0)
+}
+
+.infinity-footer {
+    width: 100vw;
+    height: 10vh;
+    background-color: rgb(118, 0, 0)
+}
+
+.infinity-text {
+    color: white;
+    margin: 50px;
+    font-size: 24px;
+}
+
+.infinity-inner-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.infinity-inner-container-reverse {
+    flex-direction: row-reverse;
+}
+
+.thoth-logo {
+    height: 280px;
+    width: 346px;
+}
